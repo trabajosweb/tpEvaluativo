@@ -1,23 +1,21 @@
-package ifes.webII.tpEvaluativo.servicio;
-
+package ifes.webII.tpEvaluativo.repositorio;
 
 import ifes.webII.tpEvaluativo.dominio.Musico;
 
 import java.util.List;
 
-public interface IServicio {
+public interface IRepositorio {
 	
-	void insertData();
+    public void insertData(Musico musico);
 	
-	void updateData();
+	public void updateData(Musico musico);
 	
 	//para el delete que id vamos a usar
 	
-	void deleteData();
+	public void deleteData();
 	
 	public List<Musico> getMusicoList();
 	
 	//public Musico getAlumnos ()
-	
 
 }
