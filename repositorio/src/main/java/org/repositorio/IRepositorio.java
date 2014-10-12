@@ -1,20 +1,26 @@
 package org.repositorio;
 
-import java.util.List;
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+
+import java.util.*;
 
 import org.dominio.Musico;
+import org.springframework.context.annotation.Configuration;
+
 
 public interface IRepositorio {
 	
-    public void insertData(Musico musico);
+	public void insertData(Object objeto);
 	
-	public void updateData(Musico musico);
+	public void updateData(Object objeto);
 	
 	//para el delete que id vamos a usar
 	
 	public void deleteData();
 	
-	public List<Musico> getMusicoList();
+	public List<Object> getList();
 	
 	//public Musico getAlumnos ()
 

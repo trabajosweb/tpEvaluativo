@@ -2,6 +2,9 @@ package org.dominio;
 
 import java.util.List;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Banda {
 
 	private String nombre;

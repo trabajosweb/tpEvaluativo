@@ -1,5 +1,8 @@
 package org.dominio;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Musico {
 	
 	private String nombre;

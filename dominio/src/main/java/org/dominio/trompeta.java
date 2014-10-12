@@ -1,5 +1,8 @@
 package org.dominio;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class trompeta extends Instrumento{
 
 	private String tipo;
