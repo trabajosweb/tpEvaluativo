@@ -6,7 +6,16 @@ import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable
 public class Banda {
-
+	
+	
+	public Banda() {
+		super();
+	}
+	public Banda(String nombre, List<Musico> listaMusicos) {
+		super();
+		this.nombre = nombre;
+		this.listaMusicos = listaMusicos;
+	}
 	private String nombre;
 	private List<Musico> listaMusicos;
 	
