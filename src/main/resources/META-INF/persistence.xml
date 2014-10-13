@@ -4,7 +4,7 @@
  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
  
-   <persistence-unit name="MiUnidadSQLite">
+   <persistence-unit name="SQLite">
      <description>Nombre de archivo que contienen la configuracion de las clases</description>
       <mapping-file>META-INF/mappingFile.xml</mapping-file>
   
