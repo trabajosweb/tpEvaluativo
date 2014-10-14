@@ -5,22 +5,10 @@ import org.dominio.Instrumento;
 import org.repositorio.IInstrumentoRepositorio;
 import org.repositorio.InstrumentoRepositorio;
 
-public class InstrumentoServicio implements IInstrumentoServicio{
+public class InstrumentoServicio implements IInstrumentosServicio{
 
-	public void guardar(Instrumento instrumento) {
-		try {
-			IInstrumentoRepositorio repo =  new InstrumentoRepositorio();
-			repo.guardar(instrumento);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void borrar(Instrumento instrumento) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	private IInstrumentoRepositorio instrumentoRepositorio = new InstrumentoRepositorio();
+	
 	public List<Instrumento> listarInstrumento() {
 		List<Instrumento> lista = null;
 		try {
@@ -30,6 +18,19 @@ public class InstrumentoServicio implements IInstrumentoServicio{
 			// TODO: handle exception
 		}
 		return lista;
+	}
+
+	public void guardar(ISaveInstrumentoServicioView view) {
+		// TODO Auto-generated method stub
+		
+		Instrumento instrumento = new Instrumento(view.getMarca(), view.getModelo(), view.getColor());
+		instrumentoRepositorio.guardar(instrumento);	
+		
+	}
+
+	public void borrar(ISaveInstrumentoServicioView view) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

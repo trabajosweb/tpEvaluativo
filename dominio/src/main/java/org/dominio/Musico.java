@@ -24,6 +24,7 @@ public class Musico {
 		this.instrumento = instrumento;
 		this.banda = banda;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}

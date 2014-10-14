@@ -9,23 +9,24 @@ import org.repositorio.IMusicoRepositorio;
 import org.repositorio.MusicoRepositorio;
 
 
-public class BandaServicio implements IBandaRepositorio{
+public class BandaServicio implements IBandaServicio{
+	
+	private IBandaRepositorio bandaRepositorio = new BandaRepositorio();
 
-	public void guardar(Banda banda) {
-		try {
-			IBandaRepositorio repo= new BandaRepositorio();
-			repo.guardar(banda);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public void guardar(ISaveBandaServicioView view) {
+		// TODO Auto-generated method stub
+		
+		Banda banda = new Banda(view.getNombre(), view.getListaMusicos());
+		bandaRepositorio.guardar(banda);
 	}
 
-	public void borrar(Banda banda) {
+	public void borrar(ISaveBandaServicioView view) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public List<Banda> listarBanda() {
+	public List<Banda> listarBandas() {
+		// TODO Auto-generated method stub
 		List<Banda> lista = null;
 		try {
 			IBandaRepositorio repo= new BandaRepositorio();

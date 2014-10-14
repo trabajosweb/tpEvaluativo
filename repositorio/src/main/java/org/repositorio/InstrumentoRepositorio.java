@@ -1,47 +1,49 @@
 package org.repositorio;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import javax.jdo.annotations.Transactional;
 import javax.jdo.listener.InstanceLifecycleListener;
 
+import org.dominio.Bajo;
 import org.dominio.Instrumento;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public class InstrumentoRepositorio implements IInstrumentoRepositorio {
+public class InstrumentoRepositorio implements IInstrumentoRepositorio{
 
-	//@Transactional
-	public void guardar(Instrumento instrumento) {
-		Transaction tx=pm.currentTransaction();
-    	try
-    	{
-    		tx.begin();
-    		pm.makePersistent(instrumento);
-    		tx.commit();
-       }
-    	finally
-    	{
-    	    if (tx.isActive())
-    	    {
-    	        tx.rollback();
-    	    }
-    	    pm.close();
-    	}
-	}
-
-    //	@Transactional
-	public void borrar(Instrumento instrumento) {
+	public void guardar(Instrumento instrumnto) {
 		// TODO Auto-generated method stub
 		Transaction tx=pm.currentTransaction();
     	try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) instrumento);
+    		pm.makePersistent(instrumnto);
+    		tx.commit();
+       }
+    	finally
+    	{
+    	    if (tx.isActive())
+    	    {
+    	        tx.rollback();
+    	    }
+    	    pm.close();
+    	}
+
+		
+
+		
+		
+	}
+
+	public void borrar(Instrumento instrumnto) {
+		// TODO Auto-generated method stub
+		Transaction tx=pm.currentTransaction();
+    	try
+    	{
+    		tx.begin();
+    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) instrumnto);
     		tx.commit();
        }
     	finally
@@ -54,9 +56,9 @@ public class InstrumentoRepositorio implements IInstrumentoRepositorio {
     	}
 
 	}
-	
-	//@Transactional
-	public  List<Instrumento> listarInstrumento() {
+
+	public List<Instrumento> listarInstrumento() {
+		// TODO Auto-generated method stub
 		Transaction tx=pm.currentTransaction();
 		List<Instrumento> lista= new ArrayList<Instrumento>();
 		try
@@ -86,7 +88,10 @@ public class InstrumentoRepositorio implements IInstrumentoRepositorio {
 		    pm.close();
 		}
 		return lista;
-	}
 
+
+	}
+	
+	
 
 }

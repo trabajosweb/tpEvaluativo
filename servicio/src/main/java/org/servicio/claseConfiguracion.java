@@ -10,15 +10,15 @@ import org.dominio.Banda;
 import org.dominio.Bateria;
 import org.dominio.Instrumento;
 import org.dominio.Musico;
-import org.dominio.trompeta;
-import org.repositorio.InstrumentoRepositorio;
+
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class claseConfiguracion {
 	
-	@Bean(name="bajo") 
+	/*@Bean(name="bajo") 
 	public Bajo inBajo() { 
 		return new Bajo("gibson", "gibsonsa", "rojo", 4);
 	}
@@ -27,8 +27,8 @@ public class claseConfiguracion {
 		return new Bateria("tama","Swingstar", "negro",4);
 	}
 	@Bean (name="trompleta")
-	public trompeta intrompeta(){
-		return new trompeta("yamaha","150", "dorada", "Bb");
+	public Trompeta intrompeta(){
+		return new Trompeta("yamaha","150", "dorada", "Bb");
 	}
 	@Bean
 	public Musico intmusico(){
@@ -50,6 +50,6 @@ public class claseConfiguracion {
 	public Musico imusico(){
 		return new Musico("carlos", "rodrigez", intrompeta(), intbanda());
 		
-	}
+	}*/
 	
 }

@@ -1,11 +1,13 @@
 package org.servicio;
+
 import java.util.List;
 
 import org.dominio.Musico;
 
-
 public interface IMusicoServicio {
-	void guardar(Musico musico);	
-	void borrar(Musico musico);
+	void guardar(ISaveMusicoServicioView view);	
+	void borrar(ISaveMusicoServicioView view);
 	public List<Musico> listarMusicos();
+
+	
 }

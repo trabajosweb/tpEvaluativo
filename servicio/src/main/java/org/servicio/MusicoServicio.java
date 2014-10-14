@@ -9,22 +9,11 @@ import org.repositorio.InstrumentoRepositorio;
 import org.repositorio.MusicoRepositorio;
 
 
-public class MusicoServicio {
+public class MusicoServicio implements IMusicoServicio{
 
-	public void guardar(Musico musico) {
-		try {
-			IMusicoRepositorio repo= new MusicoRepositorio();
-			repo.guardar(musico);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void borrar(Musico musico) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	private IMusicoRepositorio musicorepositorio = new MusicoRepositorio();
+	
+	
 	public List<Musico> listarMusicos() {
 		List<Musico> lista = null;
 		try {
@@ -34,5 +23,18 @@ public class MusicoServicio {
 			// TODO: handle exception
 		}
 		return lista;
+	}
+
+	public void guardar(ISaveMusicoServicioView view) {
+		// TODO Auto-generated method stub
+		
+		Musico musico = new Musico(view.getNombre(), view.getApellido(), view.getInstrumento(), view.getBanda());
+		
+		musicorepositorio.guardar(musico);
+	}
+
+	public void borrar(ISaveMusicoServicioView view) {
+		// TODO Auto-generated method stub
+		
 	}
 }
