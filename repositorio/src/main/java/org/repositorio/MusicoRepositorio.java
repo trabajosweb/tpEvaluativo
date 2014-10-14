@@ -7,6 +7,7 @@ import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 import javax.jdo.annotations.Transactional;
+import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Musico;
 import org.springframework.stereotype.Repository;
@@ -34,10 +35,25 @@ public class MusicoRepositorio implements IMusicoRepositorio{
     	}
 	}
 
-	@Transactional
+	//@Transactional
 	public void borrar(Musico musico) {
 		// TODO Auto-generated method stub
-		
+		Transaction tx=pm.currentTransaction();
+    	try
+    	{
+    		tx.begin();
+    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) musico);
+    		tx.commit();
+       }
+    	finally
+    	{
+    	    if (tx.isActive())
+    	    {
+    	        tx.rollback();
+    	    }
+    	    pm.close();
+    	}
+
 	}
 	
 	

@@ -9,7 +9,7 @@ import javax.jdo.PersistenceManagerFactory;
 import org.dominio.Musico;
 
 public interface IMusicoRepositorio {
-	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("MiUnidadSQLite"); 
+	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
 	PersistenceManager pm = pmf.getPersistenceManager();
 	public void guardar(Musico musico);
 	public void borrar(Musico musico);

@@ -7,6 +7,7 @@ import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 import javax.jdo.annotations.Transactional;
+import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Instrumento;
 import org.springframework.stereotype.Repository;
@@ -33,10 +34,25 @@ public class InstrumentoRepositorio implements IInstrumentoRepositorio {
     	}
 	}
 
-	@Transactional
+    //	@Transactional
 	public void borrar(Instrumento instrumento) {
 		// TODO Auto-generated method stub
-		
+		Transaction tx=pm.currentTransaction();
+    	try
+    	{
+    		tx.begin();
+    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) instrumento);
+    		tx.commit();
+       }
+    	finally
+    	{
+    	    if (tx.isActive())
+    	    {
+    	        tx.rollback();
+    	    }
+    	    pm.close();
+    	}
+
 	}
 	
 	//@Transactional

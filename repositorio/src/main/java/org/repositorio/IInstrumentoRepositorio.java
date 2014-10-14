@@ -9,7 +9,7 @@ import javax.jdo.PersistenceManagerFactory;
 import org.dominio.Instrumento;
 
 public interface IInstrumentoRepositorio {
-	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("MiUnidadSQLite"); 
+	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
 	PersistenceManager pm = pmf.getPersistenceManager();
 	public void guardar(Instrumento instrumento);
 	public void borrar(Instrumento instrumento);

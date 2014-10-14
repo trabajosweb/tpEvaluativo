@@ -6,7 +6,17 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 		
+	<bean  id:"BandaServicio"
+	class:"org.servicio.IBandaServicio">
+	 </bean>
 		
 		
+	<bean  id:"InstrumentoServicio"
+	class:"org.servicio.IInstrumentoServicio">
+	 </bean>
+		
+		<bean  id:"MusicoServicio"
+	class:"org.servicio.IMusicoServicio">
+	 </bean>
 		
 	 </beans>

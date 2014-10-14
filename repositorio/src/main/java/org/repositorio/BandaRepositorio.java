@@ -8,6 +8,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 import javax.jdo.annotations.Transactional;
+import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Banda;
 import org.springframework.stereotype.Repository;
@@ -37,7 +38,21 @@ public class BandaRepositorio implements IBandaRepositorio{
 	@Transactional
 	public void borrar(Banda banda) {
 		// TODO Auto-generated method stub
-		
+		Transaction tx=pm.currentTransaction();
+		try
+    	{
+    		tx.begin();
+    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) banda);
+    		tx.commit();
+       }
+    	finally
+    	{
+    	    if (tx.isActive())
+    	    {
+    	        tx.rollback();
+    	    }
+    	    pm.close();
+    	}
 	}
 	
 	//@Transactional

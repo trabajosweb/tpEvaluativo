@@ -9,7 +9,7 @@ import javax.jdo.PersistenceManagerFactory;
 import org.dominio.Banda;
 
 public interface IBandaRepositorio {
-	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("MiUnidadSQLite"); 
+	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
 	PersistenceManager pm = pmf.getPersistenceManager();
 	public void guardar(Banda banda);
 	public void borrar(Banda banda);
