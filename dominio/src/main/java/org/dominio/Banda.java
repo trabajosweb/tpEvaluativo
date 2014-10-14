@@ -3,10 +3,15 @@ package org.dominio;
 import java.util.List;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 
 @PersistenceCapable
 public class Banda {
 	
+	@Persistent
+	private String nombre;
+	@Persistent
+	private List<Musico> listaMusicos;
 	
 	public Banda() {
 		super();
@@ -16,8 +21,7 @@ public class Banda {
 		this.nombre = nombre;
 		this.listaMusicos = listaMusicos;
 	}
-	private String nombre;
-	private List<Musico> listaMusicos;
+	
 	
 	
 	public String getNombre() {

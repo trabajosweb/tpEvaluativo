@@ -1,14 +1,19 @@
 package org.dominio;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 
 @PersistenceCapable
 public class Musico {
 	
+	@Persistent
 	private String nombre;
+	@Persistent
 	private String apellido;
+	@Persistent
 	private Instrumento instrumento;
-    private Banda banda;
+	@Persistent
+	private Banda banda;
     
    
 	public Musico(String nombre, String apellido, Instrumento instrumento,

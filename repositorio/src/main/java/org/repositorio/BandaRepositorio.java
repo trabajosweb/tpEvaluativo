@@ -7,11 +7,15 @@ import javax.jdo.Extent;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
+import javax.jdo.annotations.Transactional;
 
 import org.dominio.Banda;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BandaRepositorio implements IBandaRepositorio{
 
+	//@Transactional
 	public void guardar(Banda banda) {
 		Transaction tx=pm.currentTransaction();
     	try
@@ -29,11 +33,14 @@ public class BandaRepositorio implements IBandaRepositorio{
     	    pm.close();
     	}
 	}
-
+	
+	@Transactional
 	public void borrar(Banda banda) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//@Transactional
 	public  List<Banda> listarBanda() {
 		Transaction tx=pm.currentTransaction();
 		List<Banda> lista= new ArrayList<Banda>();

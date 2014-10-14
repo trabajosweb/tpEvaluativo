@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import org.dominio.Instrumento;
+import javax.jdo.annotations.Transactional;
 
+import org.dominio.Instrumento;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class InstrumentoRepositorio implements IInstrumentoRepositorio {
 
+	//@Transactional
 	public void guardar(Instrumento instrumento) {
 		Transaction tx=pm.currentTransaction();
     	try
@@ -28,10 +33,13 @@ public class InstrumentoRepositorio implements IInstrumentoRepositorio {
     	}
 	}
 
+	@Transactional
 	public void borrar(Instrumento instrumento) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//@Transactional
 	public  List<Instrumento> listarInstrumento() {
 		Transaction tx=pm.currentTransaction();
 		List<Instrumento> lista= new ArrayList<Instrumento>();

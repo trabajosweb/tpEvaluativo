@@ -6,10 +6,16 @@ import java.util.List;
 import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import org.dominio.Musico;
+import javax.jdo.annotations.Transactional;
 
+import org.dominio.Musico;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
 public class MusicoRepositorio implements IMusicoRepositorio{
 
+	//@Transactional
 	public void guardar(Musico musico) {
 		Transaction tx=pm.currentTransaction();
     	try
@@ -28,10 +34,14 @@ public class MusicoRepositorio implements IMusicoRepositorio{
     	}
 	}
 
+	@Transactional
 	public void borrar(Musico musico) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	//@Transactional
 	public  List<Musico> listarMusico() {
 		Transaction tx=pm.currentTransaction();
 		List<Musico> lista= new ArrayList<Musico>();

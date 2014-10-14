@@ -1,10 +1,12 @@
 package org.dominio;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 
 @PersistenceCapable
 public class Bajo extends Instrumento{
 	
+	@Persistent
 	private int cantCuerdas;
 	
 	public Bajo(String marca, String modelo, String color, int cantCuerdas) {

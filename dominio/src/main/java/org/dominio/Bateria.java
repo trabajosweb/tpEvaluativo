@@ -1,11 +1,13 @@
 package org.dominio;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 
 @PersistenceCapable
 public class Bateria extends Instrumento{
 	
-		private int cantPlatos;
+	@Persistent	
+	private int cantPlatos;
 	
 		public Bateria(String marca, String modelo, String color, int cantPlatos) {
 			super(marca, modelo, color);

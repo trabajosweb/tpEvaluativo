@@ -1,12 +1,16 @@
 package org.dominio;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 
 @PersistenceCapable
 public class Instrumento {
-
+	
+	@Persistent
 	private String marca;
+	@Persistent
 	private String modelo;
+	@Persistent
 	private String color;
 	
 	public Instrumento ( String marca, String modelo, String color){
