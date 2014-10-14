@@ -26,6 +26,12 @@ public class Trompeta extends Instrumento{
 		this.tipo = tipo;
 	}
 
+
+	public boolean checkSum(String tipoTrompeta) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 	
 	

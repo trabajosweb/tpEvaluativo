@@ -23,6 +23,13 @@ public class Bajo extends Instrumento{
 		this.cantCuerdas = cantCuerdas;
 	}
 
+	public boolean checkSum(int cantidadCuerda) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
 	
 	
 	

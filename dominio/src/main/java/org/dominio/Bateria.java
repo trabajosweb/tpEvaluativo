@@ -22,6 +22,11 @@ public class Bateria extends Instrumento{
 		public void setCantPlatos(int cantPlatos) {
 			this.cantPlatos = cantPlatos;
 		}
+
+		public boolean checkSum(int cantidaPlatos) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 		
 		
 

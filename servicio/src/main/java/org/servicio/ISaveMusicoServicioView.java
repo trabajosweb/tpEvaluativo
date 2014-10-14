@@ -4,7 +4,8 @@ import org.dominio.Banda;
 import org.dominio.Instrumento;
 
 public interface ISaveMusicoServicioView {
-public String getNombre();
+    
+	public String getNombre();
 	
 	public void setNombre(String nombre);
 	

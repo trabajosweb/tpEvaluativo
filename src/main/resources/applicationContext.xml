@@ -5,19 +5,27 @@
  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-		
-			  <bean id="Bajo" 
-      class="org.dominio.Bajo"> 
-  </bean>
+	
+	 <bean id="Bajo" 
+      class="org.dominio.Bajo"/> 
+         
 	 
 	 <bean id="Bateria" 
-      class="org.dominio.Bateria"> 
-  </bean>
+      class="org.dominio.Bateria"/> 
+  
   
   <bean id="Trompeta" 
-      class="org.dominio.Trompeta"> 
-  </bean>
+      class="org.dominio.Trompeta"/> 
+  
 		
+		 <bean id="Banda" 
+      class="org.dominio.Banda"/> 
+  
+	
+	 <bean id="Musico" 
+      class="org.dominio.Musico"/> 
+  
+	
 		
 	<bean  id="BandaServicio"
 	class="org.servicio.IBandaServicio">

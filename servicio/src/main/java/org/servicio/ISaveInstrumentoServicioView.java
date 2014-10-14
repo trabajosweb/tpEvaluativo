@@ -21,4 +21,17 @@ public interface ISaveInstrumentoServicioView {
 	
 	public void setCantCuerdas(int cantCuerdas);
 	
+	//tromepeta
+	public String getTipo();
+	
+	public void setTipo(String tipo);
+		
+	//bateria
+	
+	public int getCantPlatos();
+	
+
+	public void setCantPlatos(int cantPlatos);
+	
+
 }

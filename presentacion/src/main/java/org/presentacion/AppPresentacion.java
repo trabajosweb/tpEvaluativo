@@ -1,10 +1,14 @@
 package org.presentacion;
 
 
+import org.dominio.Bajo;
+import org.dominio.Bateria;
+import org.dominio.Trompeta;
 import org.servicio.*;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +17,7 @@ import java.io.InputStreamReader;
 
 public class AppPresentacion{
 
-	public static ApplicationContext context = new AnnotationConfigApplicationContext("applicationContext.xml");
+	public static ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:resources/applicationContext.xml");
 	public static BeanFactory factory = context;
 	
 	
@@ -82,23 +86,51 @@ public class AppPresentacion{
 		instrumento.setColor(Preguntar("ingrese el color del instrumento"));
 		
 		if (tipoInstrumento.equals("Bajo")){
-		    //  instrumento.setCantCuerdas(   Preguntar("ingrese la cantida de cuerda"));
+		    
+			Bajo bajo = (Bajo)instrumento; 
+			
+			int cantidadCuerda;
+			
+			do{
+				cantidadCuerda =  PreguntaEntero("ingrese cantidad de cuerda");
+        	}while(!bajo.checkSum(cantidadCuerda));
+			bajo.setCantCuerdas(cantidadCuerda);
+			
 		}
 		
 		if (tipoInstrumento.equals("Trompeta")){
-		     // instrumento.setCantCuerdas(   Preguntar("ingrese la cantida de cuerda"));
+		    
+          Trompeta trompeta = (Trompeta)instrumento; 
+			
+			String tipoTrompeta;
+			
+			do{
+				tipoTrompeta =  Preguntar("ingrese tipo trompeta");
+        	}while(!trompeta.checkSum(tipoTrompeta));
+			trompeta.setTipo(tipoTrompeta);
+			
 		}
 		
 		if (tipoInstrumento.equals("Bateria")){
-		   //   instrumento.setCantCuerdas(   Preguntar("ingrese la cantida de cuerda"));
+		   
+			 Bateria bateria = (Bateria)instrumento; 
+				
+				int cantidaPlatos;
+				
+				do{
+					cantidaPlatos =  PreguntaEntero("ingrese cantida de platos");
+	        	}while(!bateria.checkSum(cantidaPlatos));
+				bateria.setCantPlatos(cantidaPlatos);
+			
 		}
 		
 		/*
 		 * ingreasar musico
 		 */
 		
-		ISaveMusicoServicioView musico = null;
+		ISaveMusicoServicioView musico;
 		
+		musico = (ISaveMusicoServicioView) factory.getBean("Musico");//instancia del objeto
 		musico.setNombre(Preguntar("ingrese el nombre del musico"));
 		musico.setApellido(Preguntar("ingrese el apellido del musico"));
 	//	musico.setInstrumento(Preguntar("ingrese el instrumento"));
@@ -108,7 +140,10 @@ public class AppPresentacion{
 		 * ingreasar banda
 		 */
 		
-		ISaveBandaServicioView banda = null;
+		ISaveBandaServicioView banda;
+		
+		
+		banda = (ISaveBandaServicioView) factory.getBean("Banda");//instancia del objeto
 		
 		banda.setNombre(Preguntar("ingrese el nombre de la banda"));
 		//banda.setListaMusicos(Preguntar("ingrese la marca del instrumento"));
