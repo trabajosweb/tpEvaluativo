@@ -13,14 +13,18 @@ public class BandaServicio implements IBandaServicio{
 	
 	private IBandaRepositorio bandaRepositorio = new BandaRepositorio();
 
-	public void guardar(ISaveBandaServicioView view) {
+	//public void guardar(ISaveBandaServicioView view)
+	public void guardar(Banda banda)
+	{
 		// TODO Auto-generated method stub
 		
-		Banda banda = new Banda(view.getNombre(), view.getListaMusicos());
+		//Banda banda = new Banda(view.getNombre(), view.getListaMusicos());
 		bandaRepositorio.guardar(banda);
 	}
 
-	public void borrar(ISaveBandaServicioView view) {
+	//public void borrar(ISaveBandaServicioView view)
+	public void borrar(Banda banda)
+	{
 		// TODO Auto-generated method stub
 		
 	}

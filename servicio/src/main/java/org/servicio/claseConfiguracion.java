@@ -10,46 +10,33 @@ import org.dominio.Banda;
 import org.dominio.Bateria;
 import org.dominio.Instrumento;
 import org.dominio.Musico;
-
-
+import org.dominio.Trompeta;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class claseConfiguracion {
 	
-	/*@Bean(name="bajo") 
+	@Bean(name="bajo") 
 	public Bajo inBajo() { 
-		return new Bajo("gibson", "gibsonsa", "rojo", 4);
+		return new Bajo();
 	}
 	@Bean(name="bateria")
 	public Bateria inbateria(){
-		return new Bateria("tama","Swingstar", "negro",4);
+		return new Bateria();
 	}
 	@Bean (name="trompleta")
 	public Trompeta intrompeta(){
-		return new Trompeta("yamaha","150", "dorada", "Bb");
+		return new Trompeta();
 	}
-	@Bean
+	@Bean(name="Musico")
 	public Musico intmusico(){
-		return new Musico("juan", "Perez", inbateria(),intbanda());
+		return new Musico();
 	} 
+	@Bean(name="Banda")
 	public Banda intbanda(){
-		List<Musico> musicos= new ArrayList<Musico>();
-		musicos.add(intmusico());
-		musicos.add(inmusico());
-		musicos.add(imusico());
-		return new Banda("la moto", musicos);
+		return new Banda();
 	}
-	@Bean
-	public Musico inmusico(){
-		return new Musico("dario", "gonzalez", inBajo(), intbanda());
-		
-	}
-	@Bean
-	public Musico imusico(){
-		return new Musico("carlos", "rodrigez", intrompeta(), intbanda());
-		
-	}*/
+	
 	
 }

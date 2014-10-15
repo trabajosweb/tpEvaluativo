@@ -5,6 +5,8 @@ import java.util.List;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
+import org.springframework.stereotype.Component;
+@Component
 @PersistenceCapable
 public class Banda {
 	

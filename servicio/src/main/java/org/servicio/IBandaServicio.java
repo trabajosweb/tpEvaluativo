@@ -7,8 +7,9 @@ import org.dominio.Banda;
 public interface IBandaServicio {
 	
 	
-		void guardar(ISaveBandaServicioView view);	
-		void borrar(ISaveBandaServicioView view);
+		void guardar(Banda banda);	
+		void borrar (Banda banda);
+		//void borrar(ISaveBandaServicioView view);
 		public List<Banda> listarBandas();
 
 }

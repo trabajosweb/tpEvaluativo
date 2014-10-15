@@ -3,6 +3,8 @@ package org.dominio;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
+import org.springframework.stereotype.Component;
+@Component
 @PersistenceCapable
 public class Instrumento {
 	
@@ -18,6 +20,10 @@ public class Instrumento {
 		this.marca=marca;
 		this.modelo=modelo;
 		this.color=color;
+	}
+
+	public Instrumento() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getMarca() {

@@ -1,6 +1,7 @@
 package org.servicio;
 import java.util.List;
 
+import org.dominio.Bajo;
 import org.dominio.Instrumento;
 import org.repositorio.IInstrumentoRepositorio;
 import org.repositorio.InstrumentoRepositorio;
@@ -20,18 +21,21 @@ public class InstrumentoServicio implements IInstrumentosServicio{
 		return lista;
 	}
 
-	public void guardar(ISaveInstrumentoServicioView view) {
+	/*public void guardar(ISaveInstrumentoServicioView view) {
 		// TODO Auto-generated method stub
 		
 		Instrumento instrumento = new Instrumento(view.getMarca(), view.getModelo(), view.getColor());
 		instrumentoRepositorio.guardar(instrumento);	
 		
-	}
+	}*/
 
-	public void borrar(ISaveInstrumentoServicioView view) {
+	//public void borrar(ISaveInstrumentoServicioView view)
+	public void borrar(Instrumento instrumento){
 		// TODO Auto-generated method stub
 		
 	}
-
+	public void guardar(Instrumento instrumento){
+		instrumentoRepositorio.guardar(instrumento);
+		}
 	
 }

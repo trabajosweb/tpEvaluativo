@@ -2,23 +2,28 @@ package org.presentacion;
 
 
 import org.dominio.Bajo;
+import org.dominio.Banda;
 import org.dominio.Bateria;
+import org.dominio.Instrumento;
+import org.dominio.Musico;
 import org.dominio.Trompeta;
 import org.servicio.*;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
+@Controller
 public class AppPresentacion{
 
-	public static ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:resources/applicationContext.xml");
-	public static BeanFactory factory = context;
+	//public static ApplicationContext context = new ClassPathXmlApplicationContext("classpath*: resources/applicationContext.xml");
+	public static ApplicationContext context= new AnnotationConfigApplicationContext(claseConfiguracion.class);
+	//public static BeanFactory factory = context;
 	
 	
 	public static String Preguntar(String preguntar) throws IOException
@@ -54,48 +59,35 @@ public class AppPresentacion{
 		
 	
 	public static void main(String[] args) throws IOException{
-		/*ApplicationContext context = new AnnotationConfigApplicationContext(claseConfiguracion.class);
-				//El detalle es que no hace falta castear IMateria 
-
-				//IMateria historia = context.getBean(Historia.class); 
-				Musico musico= context.getBean(Musico.class);
-				Banda banda= context.getBean(Banda.class);
-				Instrumento instrumento= context.getBean(Instrumento.class);
-				//IMateria geografia = context.getBean(Geografia.class); 
-
-				//La implementacion del metodo mostrarDetalles por la clase Historia 
-
-				System.out.println(banda.getNombre()); 
-
-				//La implementacion del metodo mostrarDetalles por la clase Geografia 
-
-				//System.out.println(geografia.mostrarDetalles());**/
 		 
-		System.out.println("hola");
-		
-		ISaveInstrumentoServicioView instrumento;
+		Instrumento instrumento;
+		//ISaveInstrumentoServicioView instrumento;
 		String tipoInstrumento;
 		
 		do{
-			tipoInstrumento = Preguntar("que tipo de instrumento quiere");
-	        }while(!tipoInstrumento.equals("Bajo")&&!tipoInstrumento.equals("Trompeta")&&!tipoInstrumento.equals("Bateria"));
+			tipoInstrumento = Preguntar("¿Que tipo de instrumento quiere?: ");
+			System.out.println(tipoInstrumento);
+	        }while(!tipoInstrumento.equals("bajo")&&!tipoInstrumento.equals("trompeta")&&!tipoInstrumento.equals("bateria"));
 		
-		instrumento = (ISaveInstrumentoServicioView) factory.getBean(tipoInstrumento);//instancia del objeto
-		instrumento.setMarca(Preguntar("ingrese la marca del instrumento"));
-		instrumento.setModelo(Preguntar("ingrese el modelo del instrumento"));
-		instrumento.setColor(Preguntar("ingrese el color del instrumento"));
+		instrumento = (Instrumento) context.getBean(tipoInstrumento);//instancia del objeto
+		instrumento.setMarca(Preguntar("Ingrese la marca del instrumento: "));
+		instrumento.setModelo(Preguntar("Ingrese el modelo del instrumento: "));
+		instrumento.setColor(Preguntar("Ingrese el color del instrumento: "));
 		
-		if (tipoInstrumento.equals("Bajo")){
+		if (tipoInstrumento.equals("bajo")){
 		    
 			Bajo bajo = (Bajo)instrumento; 
-			
 			int cantidadCuerda;
 			
 			do{
 				cantidadCuerda =  PreguntaEntero("ingrese cantidad de cuerda");
-        	}while(!bajo.checkSum(cantidadCuerda));
+        	}while(!bajo.checkSum(cantidadCuerda)==false);
 			bajo.setCantCuerdas(cantidadCuerda);
-			
+			//IBandaServicio servi= new BandaServicio();
+			//servi.guardar(banda);
+			IInstrumentoServicioBajo servi= new InstrumentoServicioBajo();
+			servi.guardar(bajo);
+			System.out.println(servi.listarbaBajos());
 		}
 		
 		if (tipoInstrumento.equals("Trompeta")){
@@ -128,9 +120,9 @@ public class AppPresentacion{
 		 * ingreasar musico
 		 */
 		
-		ISaveMusicoServicioView musico;
+		Musico musico;
 		
-		musico = (ISaveMusicoServicioView) factory.getBean("Musico");//instancia del objeto
+		musico = (Musico) context.getBean("Musico");//instancia del objeto
 		musico.setNombre(Preguntar("ingrese el nombre del musico"));
 		musico.setApellido(Preguntar("ingrese el apellido del musico"));
 	//	musico.setInstrumento(Preguntar("ingrese el instrumento"));
@@ -140,11 +132,11 @@ public class AppPresentacion{
 		 * ingreasar banda
 		 */
 		
-		ISaveBandaServicioView banda;
+		//ISaveBandaServicioView banda;
+		Banda banda;
 		
-		
-		banda = (ISaveBandaServicioView) factory.getBean("Banda");//instancia del objeto
-		
+		//banda = (ISaveBandaServicioView) context.getBean("Banda");//instancia del objeto
+		banda = (Banda) context.getBean("Banda");
 		banda.setNombre(Preguntar("ingrese el nombre de la banda"));
 		//banda.setListaMusicos(Preguntar("ingrese la marca del instrumento"));
 		

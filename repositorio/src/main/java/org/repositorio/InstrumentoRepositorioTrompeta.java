@@ -10,7 +10,8 @@ import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Instrumento;
 import org.dominio.Trompeta;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class InstrumentoRepositorioTrompeta implements IInstrumentoRepositorioTrompeta  {
 
 	public void guardar(Trompeta trompeta) {

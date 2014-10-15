@@ -3,6 +3,8 @@ package org.dominio;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
+import org.springframework.stereotype.Component;
+@Component
 @PersistenceCapable
 public class Musico {
 	
@@ -15,7 +17,10 @@ public class Musico {
 	@Persistent
 	private Banda banda;
     
-   
+	public Musico() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Musico(String nombre, String apellido, Instrumento instrumento,
 			Banda banda) {
 		super();

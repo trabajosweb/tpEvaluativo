@@ -10,7 +10,8 @@ import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Bajo;
 import org.dominio.Instrumento;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class InstrumentoRepositorioBajo implements IInstrumentoRepositorioBajo {
 
 	public void guardar(Bajo bajo) {

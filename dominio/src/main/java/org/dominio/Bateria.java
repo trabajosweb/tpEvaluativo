@@ -3,12 +3,16 @@ package org.dominio;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
+import org.springframework.stereotype.Component;
+@Component
 @PersistenceCapable
 public class Bateria extends Instrumento{
 	
 	@Persistent	
 	private int cantPlatos;
-	
+	public Bateria() {
+		super();
+	}
 		public Bateria(String marca, String modelo, String color, int cantPlatos) {
 			super(marca, modelo, color);
 			// TODO Auto-generated constructor stub
