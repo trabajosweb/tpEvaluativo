@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.Extent;
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 import javax.jdo.listener.InstanceLifecycleListener;
@@ -12,7 +15,8 @@ import org.dominio.Bateria;
 import org.springframework.stereotype.Repository;
 @Repository
 public class InstrumentoRepositorioBateria implements IInstrumentoRepositorioBateria{
-
+	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
+	PersistenceManager pm = pmf.getPersistenceManager();
 	public void guardar(Bateria bateria) {
 		// TODO Auto-generated method stub
 		Transaction tx=pm.currentTransaction();

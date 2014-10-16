@@ -17,11 +17,11 @@ import org.dominio.Instrumento;
 import org.springframework.stereotype.Repository;
 @Repository
 public class InstrumentoRepositorioBajo implements IInstrumentoRepositorioBajo {
-
+	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
+	PersistenceManager pm = pmf.getPersistenceManager();
 	public void guardar(Bajo bajo) {
 		// TODO Auto-generated method stub
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
-		PersistenceManager pm = pmf.getPersistenceManager();
+		
 		Transaction tx=pm.currentTransaction();
     	try
     	{
