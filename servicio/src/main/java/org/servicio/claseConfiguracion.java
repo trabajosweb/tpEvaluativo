@@ -37,6 +37,6 @@ public class claseConfiguracion {
 	
 	@Bean(name="musico")
 	public Musico intmusico(){
-		return new Musico();
+		return new Musico(null, null, null, null);
 	} 
 }

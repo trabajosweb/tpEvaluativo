@@ -28,8 +28,8 @@ public class MusicoServicio implements IMusicoServicio{
 	public void guardar(Musico musico) {
 		// TODO Auto-generated method stub
 		
-		
-		musicorepositorio.guardar(musico);
+		Musico nuevo = new Musico(musico.getNombre(), musico.getApellido(), musico.getBanda(), musico.getInstrumento());
+		musicorepositorio.guardar(nuevo);
 	}
 
 	public void borrar(Musico musico) {

@@ -61,7 +61,7 @@ public class AppPresentacion{
 		Instrumento instrumento;
 		String tipoInstrumento;
 		
-<<<<<<< HEAD
+
 		do{
 			tipoInstrumento = Preguntar("***¿Que tipo de instrumento quiere?: ***");
 			System.out.println(tipoInstrumento);
@@ -114,8 +114,7 @@ public class AppPresentacion{
 			
 		}
 		
-=======
->>>>>>> 0c6d57f0bb58ca99a60f679dbbba968411e197c2
+
 		/*
 		 *
 		 */
@@ -127,20 +126,16 @@ public class AppPresentacion{
 		
 		Banda banda;
 		banda = (Banda) context.getBean("banda");
-<<<<<<< HEAD
+
 		banda.setNombre(Preguntar("***ingrese el nombre de la banda***"));
-=======
 		banda.setNombre(Preguntar("***Ingrese el nombre de la banda***"));
 
->>>>>>> 0c6d57f0bb58ca99a60f679dbbba968411e197c2
+
 		int numint= PreguntaEntero("***Ingrese la cantidad de integrantes de la banda***");
 		
 		for (int i=0;i< numint;i++){
 			Musico musico;
-<<<<<<< HEAD
-			System.out.println("*******   musico   ***********");
-=======
->>>>>>> 0c6d57f0bb58ca99a60f679dbbba968411e197c2
+         	System.out.println("*******   musico   ***********");
 			musico = (Musico) context.getBean("musico");//instancia del objeto
 			musico.setNombre(Preguntar("***Ingrese el nombre del musico***"));
 			musico.setApellido(Preguntar("***Ingrese el apellido del musico***"));
@@ -202,7 +197,7 @@ public class AppPresentacion{
 			serviinServicio.guardar(instrumento);
 		}
 		servibanda.guardar(banda);
-<<<<<<< HEAD
+
 		//banda.setNombre(Preguntar("ingrese el nombre de la banda"));
 		
 			
@@ -214,8 +209,6 @@ public class AppPresentacion{
 		//ISaveBandaServicioView banda;
 		
 		//banda = (ISaveBandaServicioView) context.getBean("Banda");//instancia del objeto
-=======
->>>>>>> 0c6d57f0bb58ca99a60f679dbbba968411e197c2
 		
 		
 		System.out.println("***Lista de bandas***");

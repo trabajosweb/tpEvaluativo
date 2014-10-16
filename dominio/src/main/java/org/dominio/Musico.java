@@ -23,12 +23,13 @@ public class Musico {
 	@Persistent
 	private Banda banda;
     
-	public Musico() {
-		super();
+//	public Musico(String string, String string2, Instrumento instrumento2, Banda banda2) {
+//		super();
 		// TODO Auto-generated constructor stub
-	}
-	public Musico(String nombre, String apellido, Instrumento instrumento,
-			Banda banda) {
+//	}
+	
+	public Musico(String nombre, String apellido, Banda banda,
+			Instrumento instrumento) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
