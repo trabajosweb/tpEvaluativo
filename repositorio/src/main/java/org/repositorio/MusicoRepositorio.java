@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.Extent;
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
@@ -14,8 +17,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MusicoRepositorio implements IMusicoRepositorio{
+<<<<<<< HEAD
 
 	
+=======
+	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
+	PersistenceManager pm = pmf.getPersistenceManager();
+>>>>>>> 0c6d57f0bb58ca99a60f679dbbba968411e197c2
 	//@Transactional
 	public void guardar(Musico musico) {
 		Transaction tx=pm.currentTransaction();
