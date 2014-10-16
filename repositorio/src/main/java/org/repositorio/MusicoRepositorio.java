@@ -6,7 +6,7 @@ import java.util.List;
 import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import javax.jdo.listener.InstanceLifecycleListener;
+
 
 import org.dominio.Musico;
 import org.springframework.stereotype.Repository;
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MusicoRepositorio implements IMusicoRepositorio{
 
+	
 	//@Transactional
 	public void guardar(Musico musico) {
 		Transaction tx=pm.currentTransaction();
@@ -41,7 +42,7 @@ public class MusicoRepositorio implements IMusicoRepositorio{
     	try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) musico);
+    		pm.deletePersistent(musico);
     		tx.commit();
        }
     	finally

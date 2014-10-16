@@ -28,6 +28,7 @@ public class MusicoServicio implements IMusicoServicio{
 	public void guardar(Musico musico) {
 		// TODO Auto-generated method stub
 		
+		
 		musicorepositorio.guardar(musico);
 	}
 

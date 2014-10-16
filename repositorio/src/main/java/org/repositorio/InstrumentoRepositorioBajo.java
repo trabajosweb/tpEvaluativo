@@ -20,10 +20,12 @@ public class InstrumentoRepositorioBajo implements IInstrumentoRepositorioBajo {
 
 	public void guardar(Bajo bajo) {
 		// TODO Auto-generated method stub
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
-		PersistenceManager pm = pmf.getPersistenceManager();
+		
 		Transaction tx=pm.currentTransaction();
-    	try
+    	
+		System.out.println(bajo);
+		
+		try
     	{
     		tx.begin();
     		pm.makePersistent(bajo);
@@ -47,7 +49,7 @@ public class InstrumentoRepositorioBajo implements IInstrumentoRepositorioBajo {
     	try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) Bajo);
+    		pm.deletePersistent(Bajo);
     		tx.commit();
        }
     	finally

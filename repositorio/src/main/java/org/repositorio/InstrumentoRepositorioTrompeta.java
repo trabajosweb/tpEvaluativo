@@ -6,9 +6,11 @@ import java.util.List;
 import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import javax.jdo.listener.InstanceLifecycleListener;
+
+
 import org.dominio.Trompeta;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class InstrumentoRepositorioTrompeta implements IInstrumentoRepositorioTrompeta  {
 
@@ -40,7 +42,7 @@ public class InstrumentoRepositorioTrompeta implements IInstrumentoRepositorioTr
     	try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) trompeta);
+    		pm.deletePersistent(trompeta);
     		tx.commit();
        }
     	finally

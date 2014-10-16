@@ -40,7 +40,7 @@ public class InstrumentoRepositorioBateria implements IInstrumentoRepositorioBat
     	try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) bateria);
+    		pm.deletePersistent(bateria);
     		tx.commit();
        }
     	finally

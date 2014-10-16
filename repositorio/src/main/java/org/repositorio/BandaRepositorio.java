@@ -42,7 +42,7 @@ public class BandaRepositorio implements IBandaRepositorio{
 		try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) banda);
+    		pm.deletePersistent(banda);
     		tx.commit();
        }
     	finally

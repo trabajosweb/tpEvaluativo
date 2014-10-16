@@ -5,6 +5,5 @@
 	<classpathentry kind="src" path="src/main/resources/META-INF"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
-	<classpathentry kind="lib" path="/home/alejandra/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.3/datanucleus-api-jdo-4.0.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

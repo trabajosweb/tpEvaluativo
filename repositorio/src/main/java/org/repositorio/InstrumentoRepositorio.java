@@ -42,7 +42,7 @@ public class InstrumentoRepositorio implements IInstrumentoRepositorio{
     	try
     	{
     		tx.begin();
-    		pm.removeInstanceLifecycleListener((InstanceLifecycleListener) instrumnto);
+    		pm.deletePersistent(instrumnto);
     		tx.commit();
        }
     	finally

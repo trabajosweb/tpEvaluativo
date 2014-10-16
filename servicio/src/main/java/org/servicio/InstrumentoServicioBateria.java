@@ -7,6 +7,8 @@ import org.repositorio.InstrumentoRepositorioBateria;
 
 public class InstrumentoServicioBateria implements IInstrumentoServicioBateria{
 
+	
+	
 	public void guardar(Bateria bateria) {
 		IInstrumentoRepositorioBateria repo= new InstrumentoRepositorioBateria();
 		repo.guardar(bateria);}

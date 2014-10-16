@@ -29,14 +29,14 @@ public class claseConfiguracion {
 	public Trompeta intrompeta(){
 		return new Trompeta();
 	}
-	@Bean(name="musico")
-	public Musico intmusico(){
-		return new Musico();
-	} 
+	
 	@Bean(name="banda")
 	public Banda intbanda(){
 		return new Banda();
 	}
 	
-	
+	@Bean(name="musico")
+	public Musico intmusico(){
+		return new Musico();
+	} 
 }

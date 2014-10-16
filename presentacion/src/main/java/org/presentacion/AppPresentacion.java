@@ -101,7 +101,7 @@ public class AppPresentacion{
 			
 		}
 		
-		if (tipoInstrumento.equals("Bateria")){
+		if (tipoInstrumento.equals("bateria")){
 		   
 			 Bateria bateria = (Bateria)instrumento; 
 				
@@ -122,13 +122,16 @@ public class AppPresentacion{
 		IMusicoServicio servi= new MusicoServicio();
 		IBandaServicio servibanda= new BandaServicio();
 		
+		System.out.println("*******   BANDA   ***********");
+		
 		Banda banda;
-		banda = (Banda) context.getBean("Banda");
+		banda = (Banda) context.getBean("banda");
 		banda.setNombre(Preguntar("***ingrese el nombre de la banda***"));
 		int numint= PreguntaEntero("***Ingrese la cantidad de integrantes de la banda***");
 		for (int i=0;i< numint;i++){
 			Musico musico;
-			musico = (Musico) context.getBean("Musico");//instancia del objeto
+			System.out.println("*******   musico   ***********");
+			musico = (Musico) context.getBean("musico");//instancia del objeto
 			musico.setNombre(Preguntar("***Ingrese el nombre del musico***"));
 			musico.setApellido(Preguntar("***Ingrese el apellido del musico***"));
 			musico.setInstrumento(instrumento);
@@ -138,9 +141,7 @@ public class AppPresentacion{
 		servibanda.guardar(banda);
 		//banda.setNombre(Preguntar("ingrese el nombre de la banda"));
 		
-		
-		
-		
+			
 		
 		/*
 		 * ingresar banda
