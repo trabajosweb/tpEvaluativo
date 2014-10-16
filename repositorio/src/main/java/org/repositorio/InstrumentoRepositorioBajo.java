@@ -2,8 +2,12 @@ package org.repositorio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import javax.jdo.Extent;
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 import javax.jdo.listener.InstanceLifecycleListener;
@@ -16,6 +20,8 @@ public class InstrumentoRepositorioBajo implements IInstrumentoRepositorioBajo {
 
 	public void guardar(Bajo bajo) {
 		// TODO Auto-generated method stub
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
+		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
     	try
     	{

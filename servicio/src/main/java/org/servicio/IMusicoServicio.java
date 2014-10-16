@@ -5,8 +5,8 @@ import java.util.List;
 import org.dominio.Musico;
 
 public interface IMusicoServicio {
-	void guardar(ISaveMusicoServicioView view);	
-	void borrar(ISaveMusicoServicioView view);
+	void guardar(Musico musico);	
+	void borrar(Musico musico);
 	public List<Musico> listarMusicos();
 
 	

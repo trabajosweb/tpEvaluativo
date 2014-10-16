@@ -65,14 +65,14 @@ public class AppPresentacion{
 		String tipoInstrumento;
 		
 		do{
-			tipoInstrumento = Preguntar("¿Que tipo de instrumento quiere?: ");
+			tipoInstrumento = Preguntar("***¿Que tipo de instrumento quiere?: ***");
 			System.out.println(tipoInstrumento);
 	        }while(!tipoInstrumento.equals("bajo")&&!tipoInstrumento.equals("trompeta")&&!tipoInstrumento.equals("bateria"));
 		
 		instrumento = (Instrumento) context.getBean(tipoInstrumento);//instancia del objeto
-		instrumento.setMarca(Preguntar("Ingrese la marca del instrumento: "));
-		instrumento.setModelo(Preguntar("Ingrese el modelo del instrumento: "));
-		instrumento.setColor(Preguntar("Ingrese el color del instrumento: "));
+		instrumento.setMarca(Preguntar("***Ingrese la marca del instrumento: ***"));
+		instrumento.setModelo(Preguntar("***Ingrese el modelo del instrumento: ***"));
+		instrumento.setColor(Preguntar("***Ingrese el color del instrumento: ***"));
 		
 		if (tipoInstrumento.equals("bajo")){
 		    
@@ -80,26 +80,24 @@ public class AppPresentacion{
 			int cantidadCuerda;
 			
 			do{
-				cantidadCuerda =  PreguntaEntero("ingrese cantidad de cuerda");
+				cantidadCuerda =  PreguntaEntero("***Ingrese cantidad de cuerda: ***");
         	}while(!bajo.checkSum(cantidadCuerda)==false);
 			bajo.setCantCuerdas(cantidadCuerda);
-			//IBandaServicio servi= new BandaServicio();
-			//servi.guardar(banda);
 			IInstrumentoServicioBajo servi= new InstrumentoServicioBajo();
 			servi.guardar(bajo);
-			System.out.println(servi.listarbaBajos());
 		}
 		
-		if (tipoInstrumento.equals("Trompeta")){
+		if (tipoInstrumento.equals("trompeta")){
 		    
           Trompeta trompeta = (Trompeta)instrumento; 
-			
-			String tipoTrompeta;
+		  String tipoTrompeta;
 			
 			do{
-				tipoTrompeta =  Preguntar("ingrese tipo trompeta");
-        	}while(!trompeta.checkSum(tipoTrompeta));
+				tipoTrompeta =  Preguntar("***Ingrese tipo trompeta: ***");
+        	}while(!trompeta.checkSum(tipoTrompeta)==false);
 			trompeta.setTipo(tipoTrompeta);
+			IInstrumentoServicioTrompeta servi= new InstrumentoServicioTrompeta();
+			servi.guardar(trompeta);
 			
 		}
 		
@@ -111,34 +109,48 @@ public class AppPresentacion{
 				
 				do{
 					cantidaPlatos =  PreguntaEntero("ingrese cantida de platos");
-	        	}while(!bateria.checkSum(cantidaPlatos));
+	        	}while(!bateria.checkSum(cantidaPlatos)==false);
 				bateria.setCantPlatos(cantidaPlatos);
+				IInstrumentoServicioBateria servi= new InstrumentoServicioBateria();
+				servi.guardar(bateria);
 			
 		}
 		
 		/*
-		 * ingreasar musico
+		 * ingresar musico
 		 */
+		IMusicoServicio servi= new MusicoServicio();
+		IBandaServicio servibanda= new BandaServicio();
 		
-		Musico musico;
+		Banda banda;
+		banda = (Banda) context.getBean("Banda");
+		banda.setNombre(Preguntar("***ingrese el nombre de la banda***"));
+		int numint= PreguntaEntero("***Ingrese la cantidad de integrantes de la banda***");
+		for (int i=0;i< numint;i++){
+			Musico musico;
+			musico = (Musico) context.getBean("Musico");//instancia del objeto
+			musico.setNombre(Preguntar("***Ingrese el nombre del musico***"));
+			musico.setApellido(Preguntar("***Ingrese el apellido del musico***"));
+			musico.setInstrumento(instrumento);
+			musico.setBanda(banda);
+			servi.guardar(musico);
+		}
+		servibanda.guardar(banda);
+		//banda.setNombre(Preguntar("ingrese el nombre de la banda"));
 		
-		musico = (Musico) context.getBean("Musico");//instancia del objeto
-		musico.setNombre(Preguntar("ingrese el nombre del musico"));
-		musico.setApellido(Preguntar("ingrese el apellido del musico"));
-	//	musico.setInstrumento(Preguntar("ingrese el instrumento"));
-	//	musico.setBanda(Preguntar("ingrese el nombre de la banda"));
+		
+		
+		
 		
 		/*
-		 * ingreasar banda
+		 * ingresar banda
 		 */
 		
 		//ISaveBandaServicioView banda;
-		Banda banda;
 		
 		//banda = (ISaveBandaServicioView) context.getBean("Banda");//instancia del objeto
-		banda = (Banda) context.getBean("Banda");
-		banda.setNombre(Preguntar("ingrese el nombre de la banda"));
-		//banda.setListaMusicos(Preguntar("ingrese la marca del instrumento"));
+		
+		//.setListaMusicos(servibanda.listarBandas());
 		
 			
 		

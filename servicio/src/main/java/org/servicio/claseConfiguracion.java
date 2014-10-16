@@ -25,15 +25,15 @@ public class claseConfiguracion {
 	public Bateria inbateria(){
 		return new Bateria();
 	}
-	@Bean (name="trompleta")
+	@Bean (name="trompeta")
 	public Trompeta intrompeta(){
 		return new Trompeta();
 	}
-	@Bean(name="Musico")
+	@Bean(name="musico")
 	public Musico intmusico(){
 		return new Musico();
 	} 
-	@Bean(name="Banda")
+	@Bean(name="banda")
 	public Banda intbanda(){
 		return new Banda();
 	}

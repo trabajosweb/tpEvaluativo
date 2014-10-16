@@ -6,7 +6,6 @@ import java.util.List;
 import javax.jdo.Extent;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-import javax.jdo.annotations.Transactional;
 import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Musico;

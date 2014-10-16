@@ -25,15 +25,13 @@ public class MusicoServicio implements IMusicoServicio{
 		return lista;
 	}
 
-	public void guardar(ISaveMusicoServicioView view) {
+	public void guardar(Musico musico) {
 		// TODO Auto-generated method stub
-		
-		Musico musico = new Musico(view.getNombre(), view.getApellido(), view.getInstrumento(), view.getBanda());
 		
 		musicorepositorio.guardar(musico);
 	}
 
-	public void borrar(ISaveMusicoServicioView view) {
+	public void borrar(Musico musico) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -9,7 +9,6 @@ import javax.jdo.Transaction;
 import javax.jdo.listener.InstanceLifecycleListener;
 
 import org.dominio.Bateria;
-import org.dominio.Instrumento;
 import org.springframework.stereotype.Repository;
 @Repository
 public class InstrumentoRepositorioBateria implements IInstrumentoRepositorioBateria{
