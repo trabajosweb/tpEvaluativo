@@ -16,7 +16,7 @@ import org.dominio.Banda;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BandaRepositorio implements IBandaRepositorio{
+public class BandaRepositorio implements IRepositorio{
 	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
 	PersistenceManager pm = pmf.getPersistenceManager();
 	//@Transactional
@@ -89,6 +89,21 @@ public class BandaRepositorio implements IBandaRepositorio{
 		    pm.close();
 		}
 		return lista;
+	}
+
+	public void guardar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void borrar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

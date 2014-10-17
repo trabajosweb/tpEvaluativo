@@ -14,7 +14,7 @@ import javax.jdo.listener.InstanceLifecycleListener;
 import org.dominio.Instrumento;
 import org.springframework.stereotype.Repository;
 @Repository
-public class InstrumentoRepositorio implements IInstrumentoRepositorio{
+public class InstrumentoRepositorio implements IRepositorio{
 	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
 	PersistenceManager pm = pmf.getPersistenceManager();
 	public void guardar(Instrumento instrumnto) {
@@ -94,6 +94,21 @@ public class InstrumentoRepositorio implements IInstrumentoRepositorio{
 		return lista;
 
 
+	}
+
+	public void guardar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void borrar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

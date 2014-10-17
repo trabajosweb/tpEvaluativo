@@ -4,22 +4,18 @@ import java.util.List;
 import org.dominio.Banda;
 import org.dominio.Musico;
 import org.repositorio.BandaRepositorio;
-import org.repositorio.IBandaRepositorio;
-import org.repositorio.IMusicoRepositorio;
 import org.repositorio.MusicoRepositorio;
 
 
-public class BandaServicio implements IBandaServicio{
+public class BandaServicio implements IServicio{
 	
-	private IBandaRepositorio bandaRepositorio = new BandaRepositorio();
-
 	//public void guardar(ISaveBandaServicioView view)
 	public void guardar(Banda banda)
 	{
 		// TODO Auto-generated method stub
 		
 		//Banda banda = new Banda(view.getNombre(), view.getListaMusicos());
-		bandaRepositorio.guardar(banda);
+		//BandaRepositorio.guardar(banda);
 	}
 
 	//public void borrar(ISaveBandaServicioView view)
@@ -33,12 +29,27 @@ public class BandaServicio implements IBandaServicio{
 		// TODO Auto-generated method stub
 		List<Banda> lista = null;
 		try {
-			IBandaRepositorio repo= new BandaRepositorio();
+			BandaRepositorio repo= new BandaRepositorio();
 			lista = repo.listarBanda();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return lista;
+	}
+
+	public void guardar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void borrar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

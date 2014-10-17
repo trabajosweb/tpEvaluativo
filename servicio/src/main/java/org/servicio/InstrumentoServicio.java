@@ -3,17 +3,14 @@ import java.util.List;
 
 import org.dominio.Bajo;
 import org.dominio.Instrumento;
-import org.repositorio.IInstrumentoRepositorio;
 import org.repositorio.InstrumentoRepositorio;
 
-public class InstrumentoServicio implements IInstrumentosServicio{
+public class InstrumentoServicio implements IServicio{
 
-	private IInstrumentoRepositorio instrumentoRepositorio = new InstrumentoRepositorio();
-	
 	public List<Instrumento> listarInstrumento() {
 		List<Instrumento> lista = null;
 		try {
-			IInstrumentoRepositorio repo = new InstrumentoRepositorio();
+			InstrumentoRepositorio repo = new InstrumentoRepositorio();
 			lista = repo.listarInstrumento();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -35,7 +32,22 @@ public class InstrumentoServicio implements IInstrumentosServicio{
 		
 	}
 	public void guardar(Instrumento instrumento){
-		instrumentoRepositorio.guardar(instrumento);
+		//instrumentoRepositorio.guardar(instrumento);
 		}
+
+	public void guardar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void borrar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

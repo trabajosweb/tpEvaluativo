@@ -10,13 +10,12 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
-
 import org.dominio.Musico;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class MusicoRepositorio implements IMusicoRepositorio{
+public class MusicoRepositorio implements IRepositorio{
 
 	
 
@@ -94,6 +93,21 @@ public class MusicoRepositorio implements IMusicoRepositorio{
 		    pm.close();
 		}
 		return lista;
+	}
+
+	public void guardar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void borrar(Object objeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

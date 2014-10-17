@@ -81,7 +81,7 @@ public class AppPresentacion{
 				cantidadCuerda =  PreguntaEntero("***Ingrese cantidad de cuerda: ***");
         	}while(!bajo.checkSum(cantidadCuerda)==false);
 			bajo.setCantCuerdas(cantidadCuerda);
-			IInstrumentoServicioBajo servi= new InstrumentoServicioBajo();
+			IServicio servi= new InstrumentoServicio();
 			servi.guardar(bajo);
 		}
 		
@@ -94,7 +94,7 @@ public class AppPresentacion{
 				tipoTrompeta =  Preguntar("***Ingrese tipo trompeta: ***");
         	}while(!trompeta.checkSum(tipoTrompeta)==false);
 			trompeta.setTipo(tipoTrompeta);
-			IInstrumentoServicioTrompeta servi= new InstrumentoServicioTrompeta();
+			IServicio servi= new InstrumentoServicio();
 			servi.guardar(trompeta);
 			
 		}
@@ -109,7 +109,7 @@ public class AppPresentacion{
 					cantidaPlatos =  PreguntaEntero("ingrese cantida de platos");
 	        	}while(!bateria.checkSum(cantidaPlatos)==false);
 				bateria.setCantPlatos(cantidaPlatos);
-				IInstrumentoServicioBateria servi= new InstrumentoServicioBateria();
+				IServicio servi= new InstrumentoServicio();
 				servi.guardar(bateria);
 			
 		}
@@ -118,9 +118,9 @@ public class AppPresentacion{
 		/*
 		 *
 		 */
-		IMusicoServicio servi= new MusicoServicio();
-		IBandaServicio servibanda= new BandaServicio();
-		IInstrumentosServicio serviinServicio= new InstrumentoServicio();
+		IServicio servi= new MusicoServicio();
+		IServicio servibanda= new BandaServicio();
+		IServicio serviinServicio= new InstrumentoServicio();
 		
 		System.out.println("*******   BANDA   ***********");
 		
@@ -159,7 +159,7 @@ public class AppPresentacion{
 					cantidadCuerda =  PreguntaEntero("***Ingrese cantidad de cuerda: ***");
 	        	}while(!bajo.checkSum(cantidadCuerda)==false);
 				bajo.setCantCuerdas(cantidadCuerda);
-				IInstrumentoServicioBajo servicioBajo= new InstrumentoServicioBajo();
+				IServicio servicioBajo= new InstrumentoServicio();
 				servicioBajo.guardar(bajo);
 			}
 			
@@ -172,7 +172,7 @@ public class AppPresentacion{
 					tipoTrompeta =  Preguntar("***Ingrese tipo trompeta: ***");
 	        	}while(!trompeta.checkSum(tipoTrompeta)==false);
 				trompeta.setTipo(tipoTrompeta);
-				IInstrumentoServicioTrompeta servicioTrompeta= new InstrumentoServicioTrompeta();
+				IServicio servicioTrompeta= new InstrumentoServicio();
 				servicioTrompeta.guardar(trompeta);
 				
 			}
@@ -187,7 +187,7 @@ public class AppPresentacion{
 						cantidaPlatos =  PreguntaEntero("ingrese cantida de platos");
 		        	}while(!bateria.checkSum(cantidaPlatos)==false);
 					bateria.setCantPlatos(cantidaPlatos);
-					IInstrumentoServicioBateria servicioBateria= new InstrumentoServicioBateria();
+					IServicio servicioBateria= new InstrumentoServicio();
 					servicioBateria.guardar(bateria);
 				
 			}
@@ -212,7 +212,7 @@ public class AppPresentacion{
 		
 		
 		System.out.println("***Lista de bandas***");
-		servi.listarMusicos();
+		//servi.listarMusicos();
 			
 		
 	}
