@@ -25,14 +25,6 @@ public class InstrumentoServicio implements IServicio {
 	}
 
 //	public List<Instrumento> listarInstrumento() {
-//		List<Instrumento> lista = null;
-//		try {
-//			InstrumentoRepositorio repo = new InstrumentoRepositorio();
-//			lista = repo.listarInstrumento();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//		return lista;
 //	}
 
 	public void guardar() {
@@ -58,8 +50,16 @@ public class InstrumentoServicio implements IServicio {
 	}
 
 	public List listar() {
-		// TODO Auto-generated method stub
-		return null;
+
+		List<Instrumento> lista = null;
+		try {
+			InstrumentoRepositorio repo = new InstrumentoRepositorio();
+			lista = repo.listar();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return lista;
+
 	}
 
 }

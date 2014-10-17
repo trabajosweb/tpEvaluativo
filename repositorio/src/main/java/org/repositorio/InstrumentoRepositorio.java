@@ -3,40 +3,36 @@ package org.repositorio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jdo.Extent;
-import javax.jdo.JDOHelper;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 import org.dominio.Instrumento;
 
 public class InstrumentoRepositorio implements IRepositorio {
 
-	// public void guardar(Instrumento instrumnto) {
-	// // TODO Auto-generated method stub
-	// Transaction tx=pm.currentTransaction();
-	// try
-	// {
-	// tx.begin();
-	// pm.makePersistent(instrumnto);
-	// tx.commit();
-	// }
-	// finally
-	// {
-	// if (tx.isActive())
-	// {
-	// tx.rollback();
-	// }
-	// pm.close();
-	// }
-	// }
-
-	public void borrar(Instrumento instrumnto) {
+	
+	public void guardar(Object objeto) {
 		// TODO Auto-generated method stub
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			pm.deletePersistent(instrumnto);
+			pm.makePersistent(objeto);
+			tx.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+			System.out.println("no se pudo guardar");
+		}
+	}
+
+	public void borrar(Object objeto) {
+		// TODO Auto-generated method stub
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			pm.deletePersistent(objeto);
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
@@ -44,11 +40,10 @@ public class InstrumentoRepositorio implements IRepositorio {
 			}
 			pm.close();
 		}
-
+		
 	}
 
-	public List<Instrumento> listarInstrumento() {
-		// TODO Auto-generated method stub
+	public List listar() {
 		Transaction tx = pm.currentTransaction();
 		List<Instrumento> lista = new ArrayList<Instrumento>();
 		try {
@@ -73,34 +68,6 @@ public class InstrumentoRepositorio implements IRepositorio {
 			pm.close();
 		}
 		return lista;
-
-	}
-
-	public void guardar(Object objeto) {
-		// TODO Auto-generated method stub
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			pm.makePersistent(objeto);
-			tx.commit();
-		} catch (Exception e) {
-			// TODO: handle exception
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-			System.out.println("no se pudo guardar");
-		}
-	}
-
-	public void borrar(Object objeto) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public List listar() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

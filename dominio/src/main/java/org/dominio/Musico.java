@@ -1,7 +1,7 @@
 package org.dominio;
 
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
+
 
 
 @PersistenceCapable  
@@ -12,11 +12,7 @@ public class Musico {
 	private Instrumento instrumento;
 	private Banda banda;
     
-//	public Musico(String string, String string2, Instrumento instrumento2, Banda banda2) {
-//		super();
-		// TODO Auto-generated constructor stub
-//	}
-	
+
 	public Musico(String nombre, String apellido, Instrumento instrumento) {
 		super();
 		this.nombre = nombre;

@@ -9,6 +9,7 @@ import org.dominio.Musico;
 import org.dominio.Trompeta;
 import org.repositorio.IRepositorio;
 import org.repositorio.InstrumentoRepositorio;
+import org.repositorio.MusicoRepositorio;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -26,17 +27,6 @@ public class MusicoServicio implements IServicio{
 		this.repositorio = repositorio;
 	}
 	
-//	public List<Musico> listarMusicos() {
-//		List<Musico> lista = null;
-//		try {
-//			IRepositorio repo= new MusicoRepositorio();
-//			lista = repo.listar();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//		return lista;
-//	}
-
 	public void borrar(Musico musico) {
 		// TODO Auto-generated method stub
 		
@@ -63,7 +53,14 @@ public class MusicoServicio implements IServicio{
 	}
 
 	public List listar() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Musico> lista = null;
+		try {
+			IRepositorio repo= new MusicoRepositorio();
+			lista = repo.listar();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return lista;
+	
 	}
 }
