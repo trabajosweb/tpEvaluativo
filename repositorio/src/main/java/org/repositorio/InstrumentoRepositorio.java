@@ -11,9 +11,6 @@ import javax.jdo.Transaction;
 import org.dominio.Instrumento;
 
 public class InstrumentoRepositorio implements IRepositorio {
-	PersistenceManagerFactory pmf = JDOHelper
-			.getPersistenceManagerFactory("SQLite");
-	PersistenceManager pm = pmf.getPersistenceManager();
 
 	// public void guardar(Instrumento instrumnto) {
 	// // TODO Auto-generated method stub
@@ -81,7 +78,6 @@ public class InstrumentoRepositorio implements IRepositorio {
 
 	public void guardar(Object objeto) {
 		// TODO Auto-generated method stub
-		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();

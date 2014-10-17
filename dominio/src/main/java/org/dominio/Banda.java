@@ -14,8 +14,7 @@ import javax.jdo.annotations.Persistent;
 
 
 @PersistenceCapable
-@Inheritance(strategy=InheritanceStrategy.NEW_TABLE) 
-@Discriminator(strategy=DiscriminatorStrategy.CLASS_NAME)
+
 public class Banda {
 	
 	

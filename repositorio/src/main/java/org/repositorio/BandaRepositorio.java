@@ -16,7 +16,7 @@ import org.dominio.Banda;
 public class BandaRepositorio implements IRepositorio{
 	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
 	PersistenceManager pm = pmf.getPersistenceManager();
-	//@Transactional
+
 	public void guardar(Banda banda) {
 		Transaction tx=pm.currentTransaction();
     	try
@@ -35,7 +35,7 @@ public class BandaRepositorio implements IRepositorio{
     	}
 	}
 	
-	@Transactional
+
 	public void borrar(Banda banda) {
 		// TODO Auto-generated method stub
 		Transaction tx=pm.currentTransaction();

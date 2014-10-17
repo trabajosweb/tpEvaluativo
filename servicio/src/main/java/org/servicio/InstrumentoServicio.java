@@ -24,19 +24,19 @@ public class InstrumentoServicio implements IServicio {
 		this.repositorio = repositorio;
 	}
 
-	public List<Instrumento> listarInstrumento() {
-		List<Instrumento> lista = null;
-		try {
-			InstrumentoRepositorio repo = new InstrumentoRepositorio();
-			lista = repo.listarInstrumento();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return lista;
-	}
+//	public List<Instrumento> listarInstrumento() {
+//		List<Instrumento> lista = null;
+//		try {
+//			InstrumentoRepositorio repo = new InstrumentoRepositorio();
+//			lista = repo.listarInstrumento();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		return lista;
+//	}
 
 	public void guardar() {
-		// TODO Auto-generated method stub
+		
 		ApplicationContext context = new AnnotationConfigApplicationContext(
 				claseConfiguracion.class);
 		Bajo _bajo = (Bajo) context.getBean("bajo");

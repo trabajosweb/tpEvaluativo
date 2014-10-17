@@ -1,27 +1,41 @@
 package org.servicio;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.dominio.Bajo;
+import org.dominio.Bateria;
 import org.dominio.Instrumento;
 import org.dominio.Musico;
+import org.dominio.Trompeta;
 import org.repositorio.IRepositorio;
 import org.repositorio.InstrumentoRepositorio;
-import org.repositorio.MusicoRepositorio;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 
 public class MusicoServicio implements IServicio{
 
-	
-	
-	public List<Musico> listarMusicos() {
-		List<Musico> lista = null;
-		try {
-			IRepositorio repo= new MusicoRepositorio();
-			lista = repo.listar();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return lista;
+	private IRepositorio repositorio;
+
+	public IRepositorio getRepositorio() {
+		return repositorio;
 	}
+
+	public void setRepositorio(IRepositorio repositorio) {
+		this.repositorio = repositorio;
+	}
+	
+//	public List<Musico> listarMusicos() {
+//		List<Musico> lista = null;
+//		try {
+//			IRepositorio repo= new MusicoRepositorio();
+//			lista = repo.listar();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		return lista;
+//	}
 
 	public void borrar(Musico musico) {
 		// TODO Auto-generated method stub
@@ -29,7 +43,17 @@ public class MusicoServicio implements IServicio{
 	}
 
 	public void guardar() {
-		// TODO Auto-generated method stub
+		ApplicationContext context = new AnnotationConfigApplicationContext(
+				claseConfiguracion.class);
+		Musico musico = (Musico) context.getBean("musico");
+		
+		List<Musico> musicos = new ArrayList<Musico>();
+		musicos.add(musico);
+		
+		repositorio = new InstrumentoRepositorio();
+		for (Musico _musico : musicos) {
+			getRepositorio().guardar(_musico);
+		}
 		
 	}
 

@@ -14,9 +14,6 @@ import org.dominio.Musico;
 public class MusicoRepositorio implements IRepositorio{
 
 	
-
-	PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SQLite"); 
-	PersistenceManager pm = pmf.getPersistenceManager();
 	//@Transactional
 	public void guardar(Musico musico) {
 		Transaction tx=pm.currentTransaction();

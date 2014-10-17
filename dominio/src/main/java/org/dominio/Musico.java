@@ -7,13 +7,9 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable  
 public class Musico {
 	
-	@Persistent
 	private String nombre;
-	@Persistent
 	private String apellido;
-	@Persistent
 	private Instrumento instrumento;
-	@Persistent
 	private Banda banda;
     
 //	public Musico(String string, String string2, Instrumento instrumento2, Banda banda2) {
