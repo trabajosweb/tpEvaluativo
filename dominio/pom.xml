@@ -17,39 +17,33 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
     	<groupId>javax.jdo</groupId>
     	<artifactId>jdo-api</artifactId>
     	<version>3.0.1</version>
     </dependency>
-    <dependency>
-    	<groupId>org.datanucleus</groupId>
-    	<artifactId>datanucleus-core</artifactId>
-    	<version>(3.9,)</version>
-    	<scope>runtime</scope>
-    </dependency>
+<!--     <dependency> -->
+<!--     	<groupId>org.datanucleus</groupId> -->
+<!--     	<artifactId>datanucleus-core</artifactId> -->
+<!--     	<version>(3.9,)</version> -->
+<!--     	<scope>runtime</scope> -->
+<!--     </dependency> -->
     <dependency>
     	<groupId>org.datanucleus</groupId>
     	<artifactId>datanucleus-api-jdo</artifactId>
     	<version>(3.9,)</version>
     </dependency>
-     <dependency>
-    	<groupId>org.datanucleus</groupId>
-    	<artifactId>datanucleus-rdbms</artifactId>
-    	<version>(3.9,)</version>
-    	<scope>runtime</scope>
-    </dependency>
-    <dependency>
-    	<groupId>org.datanucleus</groupId>
-    	<artifactId>datanucleus-accessplatform-jdo-rdbms</artifactId>
-    	<version>(3.9,)</version>
-    	<type>pom</type>
-    </dependency>
+<!--      <dependency> -->
+<!--     	<groupId>org.datanucleus</groupId> -->
+<!--     	<artifactId>datanucleus-rdbms</artifactId> -->
+<!--     	<version>(3.9,)</version> -->
+<!--     	<scope>runtime</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--     	<groupId>org.datanucleus</groupId> -->
+<!--     	<artifactId>datanucleus-accessplatform-jdo-rdbms</artifactId> -->
+<!--     	<version>(3.9,)</version> -->
+<!--     	<type>pom</type> -->
+<!--     </dependency> -->
     <dependency>
     	<groupId>org.datanucleus</groupId>
     	<artifactId>datanucleus-enhancer</artifactId>
@@ -57,5 +51,59 @@
     </dependency>
     
   </dependencies>
+
+<build>
+  		<plugins>
+  			<plugin>
+  				<groupId>org.datanucleus</groupId>
+  				<artifactId>maven-datanucleus-plugin</artifactId>
+  				<version>3.1.0-m3</version>
+  				<executions>
+  					<execution>
+  						<phase>process-classes</phase>
+  							<goals>
+  								<goal>enhance</goal>
+  							</goals>
+  					</execution>
+  				</executions>
+  			</plugin>
+  		</plugins>
+  		<pluginManagement>
+  			<plugins>
+  				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+  				<plugin>
+  					<groupId>org.eclipse.m2e</groupId>
+  					<artifactId>lifecycle-mapping</artifactId>
+  					<version>1.0.0</version>
+  					<configuration>
+  						<lifecycleMappingMetadata>
+  							<pluginExecutions>
+  								<pluginExecution>
+  									<pluginExecutionFilter>
+  										<groupId>
+  											org.datanucleus
+  										</groupId>
+  										<artifactId>
+  											maven-datanucleus-plugin
+  										</artifactId>
+  										<versionRange>
+  											[3.1.0-m3,)
+  										</versionRange>
+  										<goals>
+  											<goal>enhance</goal>
+  										</goals>
+  									</pluginExecutionFilter>
+  									<action>
+  										<ignore/>
+  									</action>
+  								</pluginExecution>
+  							</pluginExecutions>
+  						</lifecycleMappingMetadata>
+  					</configuration>
+  				</plugin>
+  			</plugins>
+  		</pluginManagement>
+  	</build>
+  
 
 </project>

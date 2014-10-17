@@ -3,25 +3,19 @@ package org.dominio;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-
-
 
 
 @PersistenceCapable
-@Inheritance(strategy=InheritanceStrategy.SUPERCLASS_TABLE) 
-public class Bajo extends Instrumento{
+@Inheritance(strategy = InheritanceStrategy.SUPERCLASS_TABLE)
+public class Bajo extends Instrumento {
+
 	
-	@Persistent
 	private int cantCuerdas;
-	
-
-
 
 	public Bajo(String marca, String modelo, String color, int cantCuerdas) {
 		super(marca, modelo, color);
 		// TODO Auto-generated constructor stub
-		this.cantCuerdas= cantCuerdas;
+		this.cantCuerdas = cantCuerdas;
 	}
 
 	public int getCantCuerdas() {
@@ -38,13 +32,7 @@ public class Bajo extends Instrumento{
 	}
 
 	public Bajo() {
-			super();
-		}
-
-	
-
-	
-	
-	
+		super();
+	}
 
 }

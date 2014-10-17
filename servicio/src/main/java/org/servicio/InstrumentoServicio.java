@@ -1,11 +1,28 @@
 package org.servicio;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dominio.Bajo;
+import org.dominio.Bateria;
 import org.dominio.Instrumento;
+import org.dominio.Trompeta;
+import org.repositorio.IRepositorio;
 import org.repositorio.InstrumentoRepositorio;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class InstrumentoServicio implements IServicio{
+public class InstrumentoServicio implements IServicio {
+
+	private IRepositorio repositorio;
+
+	public IRepositorio getRepositorio() {
+		return repositorio;
+	}
+
+	public void setRepositorio(IRepositorio repositorio) {
+		this.repositorio = repositorio;
+	}
 
 	public List<Instrumento> listarInstrumento() {
 		List<Instrumento> lista = null;
@@ -18,36 +35,31 @@ public class InstrumentoServicio implements IServicio{
 		return lista;
 	}
 
-	/*public void guardar(ISaveInstrumentoServicioView view) {
+	public void guardar() {
 		// TODO Auto-generated method stub
-		
-		Instrumento instrumento = new Instrumento(view.getMarca(), view.getModelo(), view.getColor());
-		instrumentoRepositorio.guardar(instrumento);	
-		
-	}*/
-
-	//public void borrar(ISaveInstrumentoServicioView view)
-	public void borrar(Instrumento instrumento){
-		// TODO Auto-generated method stub
-		
-	}
-	public void guardar(Instrumento instrumento){
-		//instrumentoRepositorio.guardar(instrumento);
+		ApplicationContext context = new AnnotationConfigApplicationContext(
+				claseConfiguracion.class);
+		Bajo _bajo = (Bajo) context.getBean("bajo");
+		Trompeta _trompeta = (Trompeta) context.getBean("trompeta");
+		Bateria _bateria = (Bateria) context.getBean("bateria");
+		List<Instrumento> instrumentos = new ArrayList<Instrumento>();
+		instrumentos.add(_bajo);
+		instrumentos.add(_bateria);
+		instrumentos.add(_trompeta);
+		repositorio = new InstrumentoRepositorio();
+		for (Instrumento _instrumento : instrumentos) {
+			getRepositorio().guardar(_instrumento);
 		}
-
-	public void guardar(Object objeto) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void borrar(Object objeto) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public List listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

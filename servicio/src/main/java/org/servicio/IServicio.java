@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IServicio {
 
-	void guardar(Object objeto);	
+	void guardar();	
 	void borrar (Object objeto);
 	public List listar();
 }

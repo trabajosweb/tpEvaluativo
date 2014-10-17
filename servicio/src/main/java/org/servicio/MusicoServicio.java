@@ -23,19 +23,12 @@ public class MusicoServicio implements IServicio{
 		return lista;
 	}
 
-	public void guardar(Musico musico) {
-		// TODO Auto-generated method stub
-		
-		Musico nuevo = new Musico(musico.getNombre(), musico.getApellido(), musico.getBanda(), musico.getInstrumento());
-		//musicorepositorio.guardar(nuevo);
-	}
-
 	public void borrar(Musico musico) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void guardar(Object objeto) {
+	public void guardar() {
 		// TODO Auto-generated method stub
 		
 	}

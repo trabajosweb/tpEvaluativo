@@ -12,7 +12,7 @@ public class AppPresentacion{
 	public static void main(String[] args) throws IOException{
 	 
 		ServicioInicial inicio = new ServicioInicial();
-		inicio.iniciar();
+		inicio.probarInstrumentos();
 	}
 
 

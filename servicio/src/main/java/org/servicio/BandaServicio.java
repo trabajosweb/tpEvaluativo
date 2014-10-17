@@ -37,7 +37,7 @@ public class BandaServicio implements IServicio{
 		return lista;
 	}
 
-	public void guardar(Object objeto) {
+	public void guardar() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,16 +1,10 @@
 package org.dominio;
 
-import javax.jdo.annotations.Discriminator;
-import javax.jdo.annotations.DiscriminatorStrategy;
-import javax.jdo.annotations.Inheritance;
-import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
 
-@PersistenceCapable
-@Inheritance(strategy=InheritanceStrategy.NEW_TABLE) 
-@Discriminator(strategy=DiscriminatorStrategy.CLASS_NAME)  
+@PersistenceCapable  
 public class Musico {
 	
 	@Persistent
@@ -27,13 +21,11 @@ public class Musico {
 		// TODO Auto-generated constructor stub
 //	}
 	
-	public Musico(String nombre, String apellido, Banda banda,
-			Instrumento instrumento) {
+	public Musico(String nombre, String apellido, Instrumento instrumento) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.instrumento = instrumento;
-		this.banda = banda;
 	}
 	
 	public String getNombre() {

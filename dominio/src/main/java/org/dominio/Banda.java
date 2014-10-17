@@ -18,9 +18,9 @@ import javax.jdo.annotations.Persistent;
 @Discriminator(strategy=DiscriminatorStrategy.CLASS_NAME)
 public class Banda {
 	
-	@Persistent
+	
 	private String nombre;
-	@Persistent
+	
 	private List<Musico> listaMusicos;
 	
 	public Banda() {
