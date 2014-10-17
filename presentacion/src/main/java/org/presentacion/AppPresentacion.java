@@ -11,8 +11,12 @@ public class AppPresentacion{
 	
 	public static void main(String[] args) throws IOException{
 	 
+//		ServicioInicial inicio = new ServicioInicial();
+//		inicio.probarInstrumentos();
+//		ServicioInicial inicio = new ServicioInicial();
+//		inicio.probarMusico();
 		ServicioInicial inicio = new ServicioInicial();
-		inicio.probarInstrumentos();
+		inicio.probarBanda();
 	}
 
 
