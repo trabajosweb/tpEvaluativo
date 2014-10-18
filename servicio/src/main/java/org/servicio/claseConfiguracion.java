@@ -33,16 +33,16 @@ public class claseConfiguracion {
 
 	@Bean(name = "musico")
 	public Musico setntmusico() {
-		return new Musico("Pepe", "Argento", null);
+		return new Musico("Pepe", "Argento", null, null);
 	}
 
 	@Bean(name = "musico_1")
 	public Musico setntmusico_1() {
-		return new Musico("Marcos", "Torres", null);
+		return new Musico("Marcos", "Torres", null, null);
 	}
 
 	@Bean(name = "musico_2")
 	public Musico setntmusico_2() {
-		return new Musico("Pablo", "Perez", null);
+		return new Musico("Pablo", "Perez", null, null);
 	}
 }
