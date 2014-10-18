@@ -7,5 +7,5 @@ public interface IServicio {
 
 	void guardar();	
 	void borrar (Object objeto);
-	public List listar();
+	public void listar();
 }

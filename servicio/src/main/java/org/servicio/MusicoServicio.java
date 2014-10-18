@@ -55,7 +55,7 @@ public class MusicoServicio implements IServicio{
 		
 	}
 
-	public List listar() {
+	public void listar() {
 		List<Musico> lista = null;
 		try {
 			IRepositorio repo= new MusicoRepositorio();
@@ -63,7 +63,6 @@ public class MusicoServicio implements IServicio{
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return lista;
 	
 	}
 }

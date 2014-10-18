@@ -18,6 +18,7 @@ public class AppPresentacion{
 		servicioint.guardar();
 		IServicio serviciobanda= new BandaServicio();
 		serviciobanda.guardar();
+		serviciobanda.listar();
 	}
 
 

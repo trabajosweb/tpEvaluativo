@@ -49,7 +49,7 @@ public class InstrumentoServicio implements IServicio {
 
 	}
 
-	public List listar() {
+	public void listar() {
 
 		List<Instrumento> lista = null;
 		try {
@@ -58,7 +58,6 @@ public class InstrumentoServicio implements IServicio {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return lista;
 
 	}
 
