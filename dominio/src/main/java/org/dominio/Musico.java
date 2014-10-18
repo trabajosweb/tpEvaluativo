@@ -1,5 +1,6 @@
 package org.dominio;
 
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.PersistenceCapable;
 
 
@@ -13,11 +14,12 @@ public class Musico {
 	private Banda banda;
     
 
-	public Musico(String nombre, String apellido, Instrumento instrumento) {
+	public Musico(String nombre, String apellido, Instrumento instrumento, Banda banda) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.instrumento = instrumento;
+		this.banda= banda;
 	}
 	
 	public String getNombre() {

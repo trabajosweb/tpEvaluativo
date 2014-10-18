@@ -36,10 +36,13 @@ public class MusicoServicio implements IServicio{
 		ApplicationContext context = new AnnotationConfigApplicationContext(
 				claseConfiguracion.class);
 		Musico musico = (Musico) context.getBean("musico");
+		Musico musico1 = (Musico) context.getBean("musico_1");
+		Musico musico2 = (Musico) context.getBean("musico_2");
 		
 		List<Musico> musicos = new ArrayList<Musico>();
 		musicos.add(musico);
-		
+		musicos.add(musico1);
+		musicos.add(musico2);
 		repositorio = new InstrumentoRepositorio();
 		for (Musico _musico : musicos) {
 			getRepositorio().guardar(_musico);

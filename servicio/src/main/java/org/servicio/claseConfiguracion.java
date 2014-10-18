@@ -1,10 +1,15 @@
 package org.servicio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.dominio.Bajo;
 import org.dominio.Banda;
 import org.dominio.Bateria;
 import org.dominio.Musico;
 import org.dominio.Trompeta;
+import org.repositorio.BandaRepositorio;
+import org.repositorio.IRepositorio;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,21 +33,21 @@ public class claseConfiguracion {
 
 	@Bean(name = "banda")
 	public Banda setntbanda() {
-		return new Banda("Los Tupipas", null);
+		return new Banda();
 	}
 
 	@Bean(name = "musico")
 	public Musico setntmusico() {
-		return new Musico("Pepe", "Argento", null);
+		return new Musico("Pepe", "Argento", setTrompeta(),setntbanda());
 	}
 
 	@Bean(name = "musico_1")
 	public Musico setntmusico_1() {
-		return new Musico("Marcos", "Torres", null);
+		return new Musico("Marcos", "Torres", getBajo(),setntbanda());
 	}
 
 	@Bean(name = "musico_2")
 	public Musico setntmusico_2() {
-		return new Musico("Pablo", "Perez", null);
+		return new Musico("Pablo", "Perez", getbateria(),setntbanda());
 	}
 }

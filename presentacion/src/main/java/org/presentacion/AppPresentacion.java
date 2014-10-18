@@ -3,7 +3,10 @@ package org.presentacion;
 
 
 import java.io.IOException;
-import org.servicio.ServicioInicial;
+
+import org.servicio.BandaServicio;
+import org.servicio.IServicio;
+import org.servicio.InstrumentoServicio;
 
 
 public class AppPresentacion{
@@ -11,12 +14,10 @@ public class AppPresentacion{
 	
 	public static void main(String[] args) throws IOException{
 	 
-		ServicioInicial inicio = new ServicioInicial();
-		inicio.probarInstrumentos();
-		ServicioInicial inicio1 = new ServicioInicial();
-		inicio1.probarMusico();
-		ServicioInicial inicio2 = new ServicioInicial();
-		inicio2.probarBanda();
+		IServicio servicioint= new InstrumentoServicio();
+		servicioint.guardar();
+		IServicio serviciobanda= new BandaServicio();
+		serviciobanda.guardar();
 	}
 
 

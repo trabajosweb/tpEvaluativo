@@ -11,7 +11,6 @@ public class InstrumentoRepositorio implements IRepositorio {
 
 	
 	public void guardar(Object objeto) {
-		// TODO Auto-generated method stub
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();

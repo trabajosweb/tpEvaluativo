@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dominio.Banda;
+import org.dominio.Musico;
 import org.repositorio.BandaRepositorio;
 import org.repositorio.IRepositorio;
 import org.repositorio.InstrumentoRepositorio;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 
 public class BandaServicio implements IServicio {
-
+	ApplicationContext context = new AnnotationConfigApplicationContext(claseConfiguracion.class);
 	private IRepositorio repositorio;
 
 	public IRepositorio getRepositorio() {
@@ -24,17 +25,16 @@ public class BandaServicio implements IServicio {
 	}
 	
 	public void guardar() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(
-				claseConfiguracion.class);
+		
 		Banda banda = (Banda) context.getBean("banda");
-		
-		List<Banda> bandas = new ArrayList<Banda>();
-		bandas.add(banda);
-		
-		repositorio = new InstrumentoRepositorio();
-		for (Banda _banda : bandas) {
-			getRepositorio().guardar(_banda);
-		}
+		List<Musico> lista= new ArrayList<Musico>();
+		lista.add((Musico) context.getBean("musico"));
+		lista.add((Musico) context.getBean("musico_1"));
+		lista.add((Musico) context.getBean("musico_2"));
+		banda.setNombre("Los Cafres");
+		banda.setListaMusicos(lista);
+		IRepositorio repo= new BandaRepositorio();
+		repo.guardar(banda);
 
 	}
 

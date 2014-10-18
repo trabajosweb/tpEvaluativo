@@ -11,10 +11,7 @@ import javax.jdo.Transaction;
 import org.dominio.Banda;
 
 public class BandaRepositorio implements IRepositorio {
-	PersistenceManagerFactory pmf = JDOHelper
-			.getPersistenceManagerFactory("SQLite");
-	PersistenceManager pm = pmf.getPersistenceManager();
-
+	
 	public void guardar(Object objeto) {
 		Transaction tx = pm.currentTransaction();
 		try {
