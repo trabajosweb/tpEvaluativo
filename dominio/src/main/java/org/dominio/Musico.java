@@ -1,6 +1,5 @@
 package org.dominio;
 
-import javax.jdo.annotations.Column;
 import javax.jdo.annotations.PersistenceCapable;
 
 
