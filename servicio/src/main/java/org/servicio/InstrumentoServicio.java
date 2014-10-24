@@ -13,24 +13,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class InstrumentoServicio implements IServicio {
+	ApplicationContext context = new AnnotationConfigApplicationContext(claseConfiguracion.class);
 
-	private IRepositorio repositorio;
-
-	public IRepositorio getRepositorio() {
-		return repositorio;
-	}
-
-	public void setRepositorio(IRepositorio repositorio) {
-		this.repositorio = repositorio;
-	}
-
-//	public List<Instrumento> listarInstrumento() {
-//	}
-
+	IRepositorio repositorioInst= (IRepositorio) context.getBean("RepositorioInstrumento");
 	public void guardar() {
-		
-		ApplicationContext context = new AnnotationConfigApplicationContext(
-				claseConfiguracion.class);
 		Bajo _bajo = (Bajo) context.getBean("bajo");
 		Trompeta _trompeta = (Trompeta) context.getBean("trompeta");
 		Bateria _bateria = (Bateria) context.getBean("bateria");
@@ -38,9 +24,8 @@ public class InstrumentoServicio implements IServicio {
 		instrumentos.add(_bajo);
 		instrumentos.add(_bateria);
 		instrumentos.add(_trompeta);
-		repositorio = new InstrumentoRepositorio();
 		for (Instrumento _instrumento : instrumentos) {
-			getRepositorio().guardar(_instrumento);
+			repositorioInst.guardar(_instrumento);
 		}
 	}
 
@@ -49,12 +34,18 @@ public class InstrumentoServicio implements IServicio {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public void listar() {
 
 		List<Instrumento> lista = null;
 		try {
-			InstrumentoRepositorio repo = new InstrumentoRepositorio();
-			lista = repo.listar();
+			lista = repositorioInst.listar();
+			System.out.println( lista.size());
+			for (Instrumento instrumento: lista){
+				System.out.println("******INSTRUMENTO******");
+				System.out.println("Marca: "+instrumento.getMarca()+", Modelo: "+instrumento.getModelo()+", Color: "+instrumento.getColor());
+				
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

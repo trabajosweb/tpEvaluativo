@@ -6,7 +6,7 @@ import javax.jdo.annotations.PersistenceCapable;
 
 
 @PersistenceCapable
-@Inheritance(strategy = InheritanceStrategy.SUPERCLASS_TABLE)
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Bajo extends Instrumento {
 
 	
@@ -14,7 +14,6 @@ public class Bajo extends Instrumento {
 
 	public Bajo(String marca, String modelo, String color, int cantCuerdas) {
 		super(marca, modelo, color);
-		// TODO Auto-generated constructor stub
 		this.cantCuerdas = cantCuerdas;
 	}
 
@@ -31,8 +30,5 @@ public class Bajo extends Instrumento {
 		return false;
 	}
 
-	public Bajo() {
-		super();
-	}
 
 }

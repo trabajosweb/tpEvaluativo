@@ -8,7 +8,7 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 
 	
 	 <bean id="Bajo" 
-      class="org.dominio.Bajo"/> 
+      class="org.dominio.Bajo"/>
          
 	 
 	 <bean id="Bateria" 

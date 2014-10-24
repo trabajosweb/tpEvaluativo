@@ -13,6 +13,8 @@ import org.dominio.Banda;
 public class BandaRepositorio implements IRepositorio {
 	
 	public void guardar(Object objeto) {
+
+		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -28,6 +30,8 @@ public class BandaRepositorio implements IRepositorio {
 	}
 
 	public void borrar(Object objeto) {
+
+		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -42,6 +46,8 @@ public class BandaRepositorio implements IRepositorio {
 	}
 
 	public List listar() {
+
+		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		List<Banda> lista = new ArrayList<Banda>();
 		try {
@@ -52,20 +58,16 @@ public class BandaRepositorio implements IRepositorio {
 			Query q = (Query) pm.newQuery(ex);
 
 			List<Banda> bandas = (List<Banda>) q.execute();
-
-			for (Banda banda : bandas) {
-				lista.add(banda);
-			}
-
+			
 			tx.commit();
-
+			return bandas;
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 			pm.close();
 		}
-		return lista;
+		
 
 	}
 

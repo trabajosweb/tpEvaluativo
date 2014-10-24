@@ -15,55 +15,44 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class BandaServicio implements IServicio {
 	ApplicationContext context = new AnnotationConfigApplicationContext(claseConfiguracion.class);
-
+	IRepositorio repositorio= (IRepositorio) context.getBean("RepositorioBanda");
+	IRepositorio repositorioInst= (IRepositorio) context.getBean("RepositorioInstrumento");
+	IRepositorio repositorioMus= (IRepositorio) context.getBean("RepositorioMusico");
 	public void guardar() {
+		Musico musico1= (Musico) context.getBean("musico1");
+	    Musico musico2= (Musico) context.getBean("musico2");
+	    Musico musico3= (Musico) context.getBean("musico3");
+	    Banda  banda  = (Banda)  context.getBean("banda");	
 		
-		Banda banda = (Banda) context.getBean("banda");
-		List<Musico> lista= new ArrayList<Musico>();
-		lista.add((Musico) context.getBean("musico"));
-		lista.add((Musico) context.getBean("musico_1"));
-		lista.add((Musico) context.getBean("musico_2"));
+	    List<Musico> lista= new ArrayList<Musico>();
+	    lista.add(musico1);
+		lista.add(musico2);
+		lista.add(musico3);
 		banda.setNombre("Los Cafres");
 		banda.setListaMusicos(lista);
-		IRepositorio repo= new BandaRepositorio();
-		repo.guardar(banda);
+	    
+		repositorio.guardar(banda);
 
 	}
 
 	public void borrar(Object objeto) {
-		// TODO Auto-generated method stub
-
+		repositorio.borrar(objeto);
 	}
 
 	public void listar() {
 		try {
-			IRepositorio repoInstrumento=new InstrumentoRepositorio();
-			IRepositorio repoMusica= new InstrumentoRepositorio();
-			IRepositorio repoBanda= new BandaRepositorio();
-			List<Musico> listaMusico = new ArrayList<Musico>();
-			List<Instrumento> listaInstrumento = new ArrayList<Instrumento>();
+			int i=0;
 			List<Banda> listaBanda = new ArrayList<Banda>();
-			listaMusico= repoMusica.listar();
-			listaBanda= repoBanda.listar();
-			listaInstrumento= repoInstrumento.listar();
+			listaBanda= repositorio.listar();
+			List<Musico> listaMusico= new ArrayList<Musico>();
 			
+			listaMusico= repositorioMus.listar();
 			for(Banda banda: listaBanda){
-				for(Musico musico: listaMusico){
-					if(musico.getBanda()==banda){
 						System.out.println("*******BANDA********");
-						System.out.println("nombre:"+ banda.getNombre().toString());
-						System.out.println("*******MUSICO********");
-						System.out.println("nombre:"+musico.getNombre());
-						System.out.println("apellido: "+musico.getApellido().toString());
-						for(Instrumento instrumento: listaInstrumento){
-							if(musico.getInstrumento()==instrumento){
-								System.out.println("*******INSTRUMENTO********");
-								System.out.println("Nombre: "+instrumento.getModelo().toString());
-							}
-							}
-					}
-					}
-				}
+						System.out.println("   "+ banda.getNombre());
+						System.out.println(banda.getListaMusicos());
+						
+			}
 			}
 		catch (Exception e) {
 			// TODO: handle exception

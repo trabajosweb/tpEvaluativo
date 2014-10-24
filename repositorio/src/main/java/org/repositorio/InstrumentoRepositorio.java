@@ -2,15 +2,19 @@ package org.repositorio;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.jdo.Extent;
+import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
+
 import org.dominio.Instrumento;
+import org.dominio.Musico;
 
 public class InstrumentoRepositorio implements IRepositorio {
 
-	
 	public void guardar(Object objeto) {
+		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -27,7 +31,8 @@ public class InstrumentoRepositorio implements IRepositorio {
 	}
 
 	public void borrar(Object objeto) {
-		// TODO Auto-generated method stub
+
+		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -42,31 +47,22 @@ public class InstrumentoRepositorio implements IRepositorio {
 		
 	}
 
-	public List listar() {
-		Transaction tx = pm.currentTransaction();
-		List<Instrumento> lista = new ArrayList<Instrumento>();
-		try {
-			tx.begin();
+	public List<Instrumento> listar() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		 List<Instrumento> lista= new ArrayList<Instrumento>();
+		 try {
 
-			Extent ex = pm.getExtent(Instrumento.class, true);
+	     Query consulta = pm.newQuery(Instrumento.class);
 
-			Query q = (Query) pm.newQuery(ex);
-
-			List<Instrumento> instrumentos = (List<Instrumento>) q.execute();
-
-			for (Instrumento instrumento : instrumentos) {
-				lista.add(instrumento);
-			}
-
-			tx.commit();
-
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
-		return lista;
+		 consulta.setClass(Instrumento.class);
+		 List<Instrumento> res = (List<Instrumento>) consulta.execute();
+		
+		 return res;
+		 }
+		 finally {
+		 if (!pm.isClosed())
+		 pm.close();
+		 
+		 }
 	}
-
 }

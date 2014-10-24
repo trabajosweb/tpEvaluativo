@@ -9,7 +9,6 @@ import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE) 
-@Discriminator(strategy=DiscriminatorStrategy.CLASS_NAME)
 public class Instrumento {
 	
 	private String marca;
@@ -21,10 +20,6 @@ public class Instrumento {
 		this.marca=marca;
 		this.modelo=modelo;
 		this.color=color;
-	}
-
-	public Instrumento() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getMarca() {

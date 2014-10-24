@@ -12,7 +12,7 @@
       <property name="javax.jdo.option.ConnectionDriverName" value="org.sqlite.JDBC"/>
       <property name="javax.jdo.option.ConnectionUserName" value=""/>
       <property name="javax.jdo.option.ConnectionPassword" value=""/>
-      <property name="datanucleus.schema.autoCreateAll" value="true"/>
+      <property name="datanucleus.schema.autoCreateTables" value="true"/>
     </properties>
   </persistence-unit>
   

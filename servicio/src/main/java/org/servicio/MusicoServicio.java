@@ -2,6 +2,8 @@ package org.servicio;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.sampled.LineListener;
+
 import org.dominio.Bajo;
 import org.dominio.Bateria;
 import org.dominio.Instrumento;
@@ -17,36 +19,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class MusicoServicio implements IServicio{
 
-	private IRepositorio repositorio;
-
-	public IRepositorio getRepositorio() {
-		return repositorio;
-	}
-
-	public void setRepositorio(IRepositorio repositorio) {
-		this.repositorio = repositorio;
-	}
-	
-	public void borrar(Musico musico) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	ApplicationContext context = new AnnotationConfigApplicationContext(claseConfiguracion.class);
+	IRepositorio repositorioMus= (IRepositorio) context.getBean("RepositorioMusico");
 	public void guardar() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(
-				claseConfiguracion.class);
-		Musico musico = (Musico) context.getBean("musico");
-		Musico musico1 = (Musico) context.getBean("musico_1");
-		Musico musico2 = (Musico) context.getBean("musico_2");
-		
-		List<Musico> musicos = new ArrayList<Musico>();
-		musicos.add(musico);
-		musicos.add(musico1);
-		musicos.add(musico2);
-		repositorio = new InstrumentoRepositorio();
-		for (Musico _musico : musicos) {
-			getRepositorio().guardar(_musico);
-		}
+		repositorioMus.guardar((Musico) context.getBean("musico1"));
+		repositorioMus.guardar((Musico) context.getBean("musico2"));
+		repositorioMus.guardar((Musico) context.getBean("musico3"));
 		
 	}
 
@@ -54,12 +32,14 @@ public class MusicoServicio implements IServicio{
 		// TODO Auto-generated method stub
 		
 	}
-
+	@SuppressWarnings("unchecked")
 	public void listar() {
 		List<Musico> lista = null;
 		try {
-			IRepositorio repo= new MusicoRepositorio();
-			lista = repo.listar();
+			lista = repositorioMus.listar();
+			for(Musico musico:lista){
+				System.out.println("nombre: "+musico.getApellido()+", apellido: "+musico.getNombre());
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
