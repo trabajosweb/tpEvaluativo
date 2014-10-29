@@ -52,20 +52,23 @@ public class MusicoRepositorio implements IRepositorio {
 	public List listar() {
 
 		 PersistenceManager pm = pmf.getPersistenceManager();
-		 List<Musico> lista= new ArrayList<Musico>();
+		 Transaction tx = pm.currentTransaction();
 		 try {
-	     Query consulta = pm.newQuery();
-		 consulta.setClass(Musico.class);
-		 List<Musico> res = (List<Musico>) consulta.execute();
-		 for (Musico musico: res){
-			 lista.add(musico);
-		 }
+			 tx.begin();
+			 Query consulta = pm.newQuery();
+			 consulta.setClass(Musico.class);
+			 List<Musico> res = (List<Musico>) consulta.execute();
+			 for(Musico m: res){
+				 System.out.println(m.toString());
+			 }
+			 tx.commit();
+			return res;
 		 }
 		 finally {
 		 if (!pm.isClosed())
 		 pm.close();
 		 }
-		 return lista;
+		 
 	}
 
 }

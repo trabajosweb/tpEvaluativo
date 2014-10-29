@@ -25,6 +25,11 @@ public class Bateria extends Instrumento{
 			this.cantPlatos = cantPlatos;
 		}
 
+		@Override
+		public String toString() {
+			return super.toString()+"\n cantidad de platos= " + cantPlatos + "";
+		}
+
 		
 		
 

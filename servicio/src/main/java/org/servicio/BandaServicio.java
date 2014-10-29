@@ -16,8 +16,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class BandaServicio implements IServicio {
 	ApplicationContext context = new AnnotationConfigApplicationContext(claseConfiguracion.class);
 	IRepositorio repositorio= (IRepositorio) context.getBean("RepositorioBanda");
-	IRepositorio repositorioInst= (IRepositorio) context.getBean("RepositorioInstrumento");
-	IRepositorio repositorioMus= (IRepositorio) context.getBean("RepositorioMusico");
 	public void guardar() {
 		Musico musico1= (Musico) context.getBean("musico1");
 	    Musico musico2= (Musico) context.getBean("musico2");
@@ -39,20 +37,11 @@ public class BandaServicio implements IServicio {
 		repositorio.borrar(objeto);
 	}
 
+	
 	public void listar() {
+		List<Banda> listaBanda = null;
 		try {
-			int i=0;
-			List<Banda> listaBanda = new ArrayList<Banda>();
 			listaBanda= repositorio.listar();
-			List<Musico> listaMusico= new ArrayList<Musico>();
-			
-			listaMusico= repositorioMus.listar();
-			for(Banda banda: listaBanda){
-						System.out.println("*******BANDA********");
-						System.out.println("   "+ banda.getNombre());
-						System.out.println(banda.getListaMusicos());
-						
-			}
 			}
 		catch (Exception e) {
 			// TODO: handle exception

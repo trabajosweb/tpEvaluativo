@@ -25,4 +25,10 @@ public class Trompeta extends Instrumento{
 		this.tipo = tipo;
 	}
 
+
+	@Override
+	public String toString() {
+		return super.toString()+"\n tipo= " + tipo + "";
+	}
+
 }

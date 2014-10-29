@@ -37,9 +37,6 @@ public class MusicoServicio implements IServicio{
 		List<Musico> lista = null;
 		try {
 			lista = repositorioMus.listar();
-			for(Musico musico:lista){
-				System.out.println("nombre: "+musico.getApellido()+", apellido: "+musico.getNombre());
-			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

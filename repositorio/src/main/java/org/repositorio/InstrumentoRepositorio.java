@@ -49,15 +49,15 @@ public class InstrumentoRepositorio implements IRepositorio {
 
 	public List<Instrumento> listar() {
 		PersistenceManager pm = pmf.getPersistenceManager();
-		 List<Instrumento> lista= new ArrayList<Instrumento>();
+		Transaction tx = pm.currentTransaction();
 		 try {
-
-	     Query consulta = pm.newQuery(Instrumento.class);
-
-		 consulta.setClass(Instrumento.class);
-		 List<Instrumento> res = (List<Instrumento>) consulta.execute();
-		
-		 return res;
+			 tx.begin();
+			 Query consulta = pm.newQuery(Instrumento.class);
+			 consulta.setClass(Instrumento.class);
+			 List<Instrumento> res = (List<Instrumento>) consulta.execute();
+			 tx.commit();
+			 return res;
+		 
 		 }
 		 finally {
 		 if (!pm.isClosed())

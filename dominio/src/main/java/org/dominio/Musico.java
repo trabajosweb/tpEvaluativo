@@ -65,6 +65,13 @@ public class Musico {
 	public void setBanda(Banda banda) {
 		this.banda = banda;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Musico nombre= " + nombre + ", apellido= " + apellido
+				+ ", instrumento= " + instrumento.toString() + ", banda= " + banda.getNombre() + "";
+	}
 	
 	
 }

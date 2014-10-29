@@ -9,6 +9,7 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Banda {
 
+	
 	private String nombre;
 	
     @Persistent(mappedBy="banda")
@@ -40,5 +41,13 @@ public class Banda {
 	public void setListaMusicos(List<Musico> listaMusicos) {
 		this.listaMusicos = listaMusicos;
 	}
-
+	@Override
+	public String toString() {
+		String datos="";
+		for (Musico m : listaMusicos) {
+			datos+= m.toString()+"\n";
+			}
+		String cad = "\n nombre=" + nombre + " \n lista musicos \n" +  datos + "";
+		return cad;
+	}
 }

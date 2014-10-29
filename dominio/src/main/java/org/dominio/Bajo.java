@@ -30,5 +30,9 @@ public class Bajo extends Instrumento {
 		return false;
 	}
 
-
+	@Override
+	public String toString() {
+		return super.toString() + "\n cantidad de cuerdas= " + cantCuerdas + "";
+	}
+	
 }

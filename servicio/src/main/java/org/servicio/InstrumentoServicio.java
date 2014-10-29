@@ -40,11 +40,9 @@ public class InstrumentoServicio implements IServicio {
 		List<Instrumento> lista = null;
 		try {
 			lista = repositorioInst.listar();
-			System.out.println( lista.size());
+			System.out.println("******INSTRUMENTO******");
 			for (Instrumento instrumento: lista){
-				System.out.println("******INSTRUMENTO******");
-				System.out.println("Marca: "+instrumento.getMarca()+", Modelo: "+instrumento.getModelo()+", Color: "+instrumento.getColor());
-				
+				System.out.println(instrumento.toString());
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

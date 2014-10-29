@@ -2,13 +2,17 @@ package org.repositorio;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
+
 import org.dominio.Banda;
+import org.dominio.Instrumento;
+import org.dominio.Musico;
 
 public class BandaRepositorio implements IRepositorio {
 	
@@ -49,18 +53,19 @@ public class BandaRepositorio implements IRepositorio {
 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		List<Banda> lista = new ArrayList<Banda>();
 		try {
-			tx.begin();
-
-			Extent ex = pm.getExtent(Banda.class, true);
-
-			Query q = (Query) pm.newQuery(ex);
-
-			List<Banda> bandas = (List<Banda>) q.execute();
-			
-			tx.commit();
-			return bandas;
+				tx.begin();
+				Query consulta = pm.newQuery(Banda.class);
+				 consulta.setClass(Banda.class);
+				 List<Banda> res = (List<Banda>) consulta.execute();
+				 
+				 for(Banda b: res){
+					 System.out.println(b.toString());
+				 }
+				 tx.commit();
+				 return res;
+				 
+				 
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();

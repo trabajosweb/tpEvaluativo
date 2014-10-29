@@ -45,6 +45,13 @@ public class Instrumento {
 	public void setColor(String color) {
 		this.color = color;
 	}
+
+	@Override
+	public String toString() {
+		return "  marca= " + marca + ", modelo= " + modelo
+				+ ", color= " + color + "";
+		
+	}
 	
 	
 	
